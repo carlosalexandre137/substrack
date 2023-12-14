@@ -9,9 +9,14 @@ import Form from "./Components/Form/Index";
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [subscriptions, setSubscriptions] = useState([]);
 
   const updateModal = (state) => {
     setOpen(state);
+  };
+
+  const saveSubscription = (subscription) => {
+    setSubscriptions([...subscriptions, subscription]);
   };
 
   return (
@@ -21,7 +26,7 @@ function App() {
         <NewSubscription updateModal={updateModal} />
         <MySubscriptions />
         <Modal open={open} updateModal={updateModal}>
-          <Form updateModal={updateModal} />
+          <Form updateModal={updateModal} saveSubscription={saveSubscription} />
         </Modal>
         <Footer />
       </main>
