@@ -24,7 +24,7 @@ function App() {
       <Header />
       <main className="px-5">
         <NewSubscription updateModal={updateModal} />
-        <MySubscriptions />
+        <MySubscriptions subscriptions={subscriptions} />
         <Modal open={open} updateModal={updateModal}>
           <Form updateModal={updateModal} saveSubscription={saveSubscription} />
         </Modal>
