@@ -6,17 +6,19 @@ import Footer from "./Components/Footer/Index";
 import Modal from "./Components/Modal/Index";
 import { useState } from "react";
 import Form from "./Components/Form/Index";
+import { subscriptionAll, subscriptionCreate } from "./Model/Subscription/Index";
 
 function App() {
   const [open, setOpen] = useState(false);
-  const [subscriptions, setSubscriptions] = useState([]);
+  const [subscriptions, setSubscriptions] = useState(subscriptionAll());
 
   const updateModal = (state) => {
     setOpen(state);
   };
 
   const saveSubscription = (subscription) => {
-    setSubscriptions([...subscriptions, subscription]);
+    subscriptionCreate(subscription);
+    setSubscriptions(subscriptionAll());
   };
 
   return (

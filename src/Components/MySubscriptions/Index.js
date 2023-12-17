@@ -15,7 +15,7 @@ const MySubscriptions = ({ subscriptions }) => {
               price={subscription.price}
               date={subscription.date}
               modelSubscription={subscription.modelSubscription}
-              key={subscription.nameSubscription}
+              key={subscription.id}
             />
           ))}
         </div>
