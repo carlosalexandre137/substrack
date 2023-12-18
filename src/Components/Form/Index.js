@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "../Input/Index";
 import Select from "../Select/Index";
+import { modelSubscriptionList } from "../../Config/Subscription";
 
 const Form = ({ updateModal, saveSubscription }) => {
   const [nameSubscription, setNameSubscription] = useState();
@@ -79,11 +80,14 @@ const Form = ({ updateModal, saveSubscription }) => {
             change={(valor) => setModelSubscription(valor)}
             required={true}
           >
-            <option value="quarterly">Trimestralmente - 3 anos</option>
-            <option value="annually">Anualmente - 1 ano</option>
-            <option value="monthly">Mensalmente - 1 mês</option>
-            <option value="weekly">Semanalmente - 1 semana</option>
-            <option value="daily">Diariamente - 1 dia</option>
+            {Object.keys(modelSubscriptionList).map((key) => {
+              const modelSub = modelSubscriptionList[key];
+              return (
+                <option value={key} key={key}>
+                  {modelSub.text + " - " + modelSub.prefix}
+                </option>
+              );
+            })}
           </Select>
         </div>
       </div>

@@ -21,7 +21,7 @@ const Card = ({ nameSubscription, website, plan, price, date, modelSubscription 
       <div className="body px-1 py-3 flex flex-col gap-3 mb-10">
         <div className="item">
           <p className="text-light-white">Próxima renovação</p>
-          <p className="text-light-pink">12 dezembro de 2023</p>
+          <p className="text-light-pink">{date}</p>
         </div>
         <div className="item">
           <p className="text-light-white">Plano</p>
