@@ -1,4 +1,4 @@
-const Input = ({ type = "text", className, id, label, placeholder, change, required, min, max }) => {
+const Input = ({ type = "text", className, id, label, placeholder, change = null, required, min, max }) => {
   return (
     <div className={className}>
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
@@ -9,7 +9,7 @@ const Input = ({ type = "text", className, id, label, placeholder, change, requi
         id={id}
         type={type}
         placeholder={placeholder ?? label}
-        onChange={(e) => change(e.target.value)}
+        onChange={(e) => (change ? change(e.target.value) : "")}
         required={required}
         minLength={min}
         maxLength={max}

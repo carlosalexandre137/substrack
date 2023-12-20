@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "../Input/Index";
 import Select from "../Select/Index";
 import { modelSubscriptionList } from "../../Config/Subscription";
+import InputMask from "../InputMask/Index";
 
 const Form = ({ updateModal, saveSubscription }) => {
   const [nameSubscription, setNameSubscription] = useState();
@@ -55,15 +56,20 @@ const Form = ({ updateModal, saveSubscription }) => {
             min="2"
             max="255"
           />
-          <Input
-            type="number"
+          <InputMask
             className="col-span-1"
             id="price"
             label="Valor do plano"
             placeholder="R$ 20,00"
-            change={(valor) => setPrice(valor)}
             required={true}
-            min="10"
+            min="1"
+            mask="0.000.000,00"
+            maskConfig={{
+              reverse: true,
+              onChange: (valor) => {
+                setPrice(valor);
+              },
+            }}
           />
           <Input
             type="date"
