@@ -48,7 +48,7 @@ const Form = ({ updateModal, saveSubscription }) => {
             max="255"
           />
           <Input
-            className="col-span-3"
+            className="col-span-2 sm:col-span-3"
             id="plan"
             label="Nome do plano"
             change={(valor) => setPlan(valor)}
@@ -57,7 +57,7 @@ const Form = ({ updateModal, saveSubscription }) => {
             max="255"
           />
           <InputMask
-            className="col-span-1"
+            className="col-span-2 sm:col-span-1"
             id="price"
             label="Valor do plano"
             placeholder="R$ 20,00"
