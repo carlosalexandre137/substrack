@@ -1,60 +1,51 @@
-import { useState } from "react";
 import Input from "../Input/Index";
 import Select from "../Select/Index";
 import { modelSubscriptionList } from "../../Config/Subscription";
 import InputMask from "../InputMask/Index";
 
-const Form = ({ updateModal, saveSubscription }) => {
-  const [nameSubscription, setNameSubscription] = useState();
-  const [website, setWebsite] = useState();
-  const [plan, setPlan] = useState();
-  const [price, setPrice] = useState();
-  const [date, setDate] = useState();
-  const [modelSubscription, setModelSubscription] = useState("quarterly");
-
-  const sendSubscription = (e) => {
+const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => {
+  const sendSubmitForm = (e) => {
     e.preventDefault();
-    saveSubscription({
-      nameSubscription,
-      website,
-      plan,
-      price,
-      date,
-      modelSubscription,
-    });
-    updateModal(false);
+    submitForm();
+  };
+
+  const value = (item) => {
+    return listValues[item] ?? "";
   };
 
   return (
-    <form onSubmit={sendSubscription}>
+    <form onSubmit={sendSubmitForm}>
       <div className="px-4 py-3">
         <div className="grid grid-cols-4 gap-4">
           <Input
             className="col-span-4 sm:col-span-2"
             id="nameSubscription"
             label="Nome da assinatura"
-            change={(valor) => setNameSubscription(valor)}
+            change={(valor) => listSet.setNameSubscription(valor)}
             required={true}
             min="5"
             max="255"
+            value={value("nameSubscription")}
           />
           <Input
             className="col-span-4 sm:col-span-2"
             id="website"
             label="Link do site"
             placeholder="https://"
-            change={(valor) => setWebsite(valor)}
+            change={(valor) => listSet.setWebsite(valor)}
             min="10"
             max="255"
+            value={value("website")}
           />
           <Input
             className="col-span-2 sm:col-span-3"
             id="plan"
             label="Nome do plano"
-            change={(valor) => setPlan(valor)}
+            change={(valor) => listSet.setPlan(valor)}
             required={true}
             min="2"
             max="255"
+            value={value("plan")}
           />
           <InputMask
             className="col-span-2 sm:col-span-1"
@@ -67,24 +58,27 @@ const Form = ({ updateModal, saveSubscription }) => {
             maskConfig={{
               reverse: true,
               onChange: (valor) => {
-                setPrice(valor);
+                listSet.setPrice(valor);
               },
             }}
+            value={value("price")}
           />
           <Input
             type="date"
             className="col-span-2"
             id="date"
             label="Inicio da assinatura"
-            change={(valor) => setDate(valor)}
+            change={(valor) => listSet.setDate(valor)}
             required={true}
+            value={value("date")}
           />
           <Select
             className="col-span-2"
             id="modelSubscription"
             label="Modelo de assinatura"
-            change={(valor) => setModelSubscription(valor)}
+            change={(valor) => listSet.setModelSubscription(valor)}
             required={true}
+            value={value("modelSubscription")}
           >
             {Object.keys(modelSubscriptionList).map((key) => {
               const modelSub = modelSubscriptionList[key];
@@ -109,7 +103,7 @@ const Form = ({ updateModal, saveSubscription }) => {
           type="submit"
           className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 mt-3 sm:mt-0 sm:w-auto"
         >
-          Registrar
+          {button}
         </button>
       </div>
     </form>

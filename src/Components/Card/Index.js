@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faGlobe, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Card = ({ nameSubscription, website, plan, price, date, modelSubscription, handleDelete }) => {
-  const eventClick = () => {
+const Card = ({ nameSubscription, website, plan, price, date, modelSubscription, handleDelete, handleEdit }) => {
+  const eventClickDelete = () => {
     handleDelete();
+  };
+
+  const eventClickEdit = () => {
+    handleEdit();
   };
 
   return (
@@ -14,10 +18,10 @@ const Card = ({ nameSubscription, website, plan, price, date, modelSubscription,
           <a href={website} target="_blank" rel="noreferrer" className="hover:text-light-pink">
             <FontAwesomeIcon icon={faGlobe} size="lg" />
           </a>
-          <button type="button" className="hover:text-light-pink">
+          <button type="button" className="hover:text-light-pink" onClick={eventClickEdit}>
             <FontAwesomeIcon icon={faEdit} size="lg" />
           </button>
-          <button type="button" className="hover:text-light-pink" onClick={eventClick}>
+          <button type="button" className="hover:text-light-pink" onClick={eventClickDelete}>
             <FontAwesomeIcon icon={faTrashAlt} size="lg" />
           </button>
         </div>

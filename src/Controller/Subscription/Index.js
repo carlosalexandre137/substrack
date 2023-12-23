@@ -82,4 +82,8 @@ export default class Subscription {
     };
     return months[month] ?? "...";
   }
+
+  toObject() {
+    return this.subscription;
+  }
 }

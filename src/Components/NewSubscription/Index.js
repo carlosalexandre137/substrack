@@ -2,8 +2,8 @@ import Title from "../Title/Index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
-const NewSubscription = ({ updateModal }) => {
-  const addSubscription = () => updateModal(true);
+const NewSubscription = ({ updateModalForm }) => {
+  const addSubscription = () => updateModalForm(true);
 
   return (
     <section>

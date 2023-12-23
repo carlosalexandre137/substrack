@@ -31,3 +31,19 @@ export const subscriptionDelete = (id) => {
   }
   localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
 };
+
+export const subscriptionUpdate = (subscription, newSubscription) => {
+  const subscriptions = subscriptionAll();
+  const newSubscriptions = [];
+
+  newSubscription.id = subscription.id;
+
+  for (const key in subscriptions) {
+    let item = subscriptions[key];
+    if (item.id === subscription.id) {
+      item = newSubscription;
+    }
+    newSubscriptions.push(item);
+  }
+  localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
+};

@@ -5,15 +5,22 @@ import "./App.scss";
 import Footer from "./Components/Footer/Index";
 import Modal from "./Components/Modal/Index";
 import { useState } from "react";
-import Form from "./Components/Form/Index";
-import { subscriptionAll, subscriptionCreate, subscriptionDelete } from "./Model/Subscription/Index";
+import { subscriptionAll, subscriptionCreate, subscriptionDelete, subscriptionUpdate } from "./Model/Subscription/Index";
+import FormCreate from "./Components/FormCreate/Index";
+import FormEdit from "./Components/FormEdit/Index";
 
 function App() {
-  const [open, setOpen] = useState(false);
+  const [openForm, setOpenForm] = useState(false);
+  const [openFormEdit, setOpenFormEdit] = useState(false);
   const [subscriptions, setSubscriptions] = useState(subscriptionAll());
+  const [subscription, setSubscription] = useState({});
 
-  const updateModal = (state) => {
-    setOpen(state);
+  const updateModalForm = (state) => {
+    setOpenForm(state);
+  };
+
+  const updateModalFormEdit = (state) => {
+    setOpenFormEdit(state);
   };
 
   const saveSubscription = (subscription) => {
@@ -26,14 +33,28 @@ function App() {
     setSubscriptions(subscriptionAll());
   };
 
+  const editSubscription = (sub) => {
+    setSubscription(sub.toObject());
+    updateModalFormEdit(true);
+  };
+
+  const updateSubscription = (subscription, newSubscription) => {
+    subscriptionUpdate(subscription, newSubscription);
+    setSubscriptions(subscriptionAll());
+    updateModalFormEdit(false);
+  };
+
   return (
     <div className="App">
       <Header />
       <main className="px-5">
-        <NewSubscription updateModal={updateModal} />
-        <MySubscriptions subscriptions={subscriptions} deleteSubscription={deleteSubscription} />
-        <Modal open={open} updateModal={updateModal}>
-          <Form updateModal={updateModal} saveSubscription={saveSubscription} />
+        <NewSubscription updateModalForm={updateModalForm} />
+        <MySubscriptions subscriptions={subscriptions} deleteSubscription={deleteSubscription} editSubscription={editSubscription} />
+        <Modal open={openForm} updateModal={updateModalForm}>
+          <FormCreate updateModal={updateModalForm} saveSubscription={saveSubscription} />
+        </Modal>
+        <Modal open={openFormEdit} updateModal={updateModalFormEdit}>
+          <FormEdit updateModal={updateModalForm} editSubscription={updateSubscription} subscription={subscription} />
         </Modal>
         <Footer />
       </main>

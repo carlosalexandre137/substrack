@@ -1,4 +1,4 @@
-const Input = ({ type = "text", className, id, label, placeholder, change = null, required, min, max }) => {
+const Input = ({ type = "text", className, id, label, placeholder, change = null, required, min, max, value = "" }) => {
   return (
     <div className={className}>
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
@@ -15,6 +15,7 @@ const Input = ({ type = "text", className, id, label, placeholder, change = null
         maxLength={max}
         min={min}
         max={max}
+        value={value}
       />
     </div>
   );
