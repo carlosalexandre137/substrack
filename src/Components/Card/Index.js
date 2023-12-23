@@ -1,7 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faGlobe, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Card = ({ nameSubscription, website, plan, price, date, modelSubscription }) => {
+const Card = ({ nameSubscription, website, plan, price, date, modelSubscription, handleDelete }) => {
+  const eventClick = () => {
+    handleDelete();
+  };
+
   return (
     <div className="flex flex-col bg-dark-brown rounded-lg p-3 drop-shadow shadow-sm shadow-red-500/60 min-w-[250px] md:min-w-[200px]">
       <div className="header flex justify-between">
@@ -13,7 +17,7 @@ const Card = ({ nameSubscription, website, plan, price, date, modelSubscription 
           <button type="button" className="hover:text-light-pink">
             <FontAwesomeIcon icon={faEdit} size="lg" />
           </button>
-          <button type="button" className="hover:text-light-pink">
+          <button type="button" className="hover:text-light-pink" onClick={eventClick}>
             <FontAwesomeIcon icon={faTrashAlt} size="lg" />
           </button>
         </div>

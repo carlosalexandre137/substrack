@@ -19,3 +19,15 @@ export const subscriptionCreate = (subscription) => {
   const subscriptions = JSON.parse(localStorage.getItem("subscriptions")) ?? [];
   localStorage.setItem("subscriptions", JSON.stringify([subscription, ...subscriptions]));
 };
+
+export const subscriptionDelete = (id) => {
+  const subscriptions = subscriptionAll();
+  const newSubscriptions = [];
+  for (const key in subscriptions) {
+    let item = subscriptions[key];
+    if (item.id !== id) {
+      newSubscriptions.push(item);
+    }
+  }
+  localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
+};

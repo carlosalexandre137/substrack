@@ -2,7 +2,7 @@ import Subscription from "../../Controller/Subscription/Index";
 import Card from "../Card/Index";
 import Title from "../Title/Index";
 
-const MySubscriptions = ({ subscriptions }) => {
+const MySubscriptions = ({ subscriptions, deleteSubscription }) => {
   return (
     <section className="mt-14">
       <Title text="Minhas assinaturas" />
@@ -19,6 +19,7 @@ const MySubscriptions = ({ subscriptions }) => {
                 date={sub.date()}
                 modelSubscription={sub.modelSubscription()}
                 key={sub.id()}
+                handleDelete={() => deleteSubscription(sub.id())}
               />
             );
           })}

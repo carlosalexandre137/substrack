@@ -6,7 +6,7 @@ import Footer from "./Components/Footer/Index";
 import Modal from "./Components/Modal/Index";
 import { useState } from "react";
 import Form from "./Components/Form/Index";
-import { subscriptionAll, subscriptionCreate } from "./Model/Subscription/Index";
+import { subscriptionAll, subscriptionCreate, subscriptionDelete } from "./Model/Subscription/Index";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -21,12 +21,17 @@ function App() {
     setSubscriptions(subscriptionAll());
   };
 
+  const deleteSubscription = (id) => {
+    subscriptionDelete(id);
+    setSubscriptions(subscriptionAll());
+  };
+
   return (
     <div className="App">
       <Header />
       <main className="px-5">
         <NewSubscription updateModal={updateModal} />
-        <MySubscriptions subscriptions={subscriptions} />
+        <MySubscriptions subscriptions={subscriptions} deleteSubscription={deleteSubscription} />
         <Modal open={open} updateModal={updateModal}>
           <Form updateModal={updateModal} saveSubscription={saveSubscription} />
         </Modal>
