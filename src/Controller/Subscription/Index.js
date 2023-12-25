@@ -1,4 +1,5 @@
 import { modelSubscriptionList } from "../../Config/Subscription";
+import SubscriptionDate from "../../Helper/SubscriptionDate";
 
 export default class Subscription {
   constructor(subscription) {
@@ -38,29 +39,7 @@ export default class Subscription {
   }
 
   afterDate() {
-    let date = new Date(this.subscription.date);
-
-    switch (this.subscription.modelSubscription) {
-      case "quarterly":
-        date.setFullYear(date.getFullYear() + 3);
-        break;
-      case "annually":
-        date.setFullYear(date.getFullYear() + 1);
-        break;
-      case "monthly":
-        date.setMonth(date.getMonth() + 1);
-        break;
-      case "weekly":
-        date.setDate(date.getDate() + 7);
-        break;
-      case "daily":
-        date.setDate(date.getDate() + 1);
-        break;
-      default:
-        break;
-    }
-
-    date.setDate(date.getDate() + 1);
+    let date = new SubscriptionDate(this.subscription.date, this.subscription.modelSubscription);
 
     return date;
   }

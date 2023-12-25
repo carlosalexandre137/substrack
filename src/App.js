@@ -54,7 +54,7 @@ function App() {
           <FormCreate updateModal={updateModalForm} saveSubscription={saveSubscription} />
         </Modal>
         <Modal open={openFormEdit} updateModal={updateModalFormEdit}>
-          <FormEdit updateModal={updateModalForm} editSubscription={updateSubscription} subscription={subscription} />
+          <FormEdit updateModal={updateModalFormEdit} editSubscription={updateSubscription} subscription={subscription} />
         </Modal>
         <Footer />
       </main>
