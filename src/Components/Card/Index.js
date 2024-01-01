@@ -26,7 +26,7 @@ const Card = ({ nameSubscription, website, plan, price, date, modelSubscription,
           </button>
         </div>
       </div>
-      <div className="body px-1 py-3 flex flex-col gap-3 mb-10">
+      <div className="body px-1 py-3 flex flex-col gap-3 mb-10 flex-1">
         {date.renewal && (
           <div className="item">
             <p className="text-yellow-400">Renovando Hoje</p>
