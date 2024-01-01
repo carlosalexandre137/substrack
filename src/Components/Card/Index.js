@@ -27,9 +27,14 @@ const Card = ({ nameSubscription, website, plan, price, date, modelSubscription,
         </div>
       </div>
       <div className="body px-1 py-3 flex flex-col gap-3 mb-10">
+        {date.renewal && (
+          <div className="item">
+            <p className="text-yellow-400">Renovando Hoje</p>
+          </div>
+        )}
         <div className="item">
           <p className="text-light-white">Próxima renovação</p>
-          <p className="text-light-pink">{date}</p>
+          <p className="text-light-pink">{date.date}</p>
         </div>
         <div className="item">
           <p className="text-light-white">Plano</p>

@@ -7,7 +7,7 @@ export default class SubscriptionDate {
 
   day = null;
 
-  hors = "05";
+  checkRenewalDay = false;
 
   modelSubscription = {
     quarterly: () => this.quarterly(),
@@ -18,54 +18,110 @@ export default class SubscriptionDate {
   };
 
   constructor(date, modelSubscription) {
-    let timeToday = new Date().getTime();
+    this.dateInit = new Date(date);
+    this.date = new Date(date);
+    this.dateToday = new Date();
 
-    this.date = new Date(date + " " + this.hors + ":00:00");
-    this.date.setHours(this.hors);
+    this.generateDate(this.date, modelSubscription);
 
-    do {
-      this.generateDate(this.date, modelSubscription);
-    } while (timeToday > this.date.getTime());
-
-    return this.date;
+    return [this.date, this.checkRenewalDay];
   }
 
   generateDate(date, modelSubscription) {
-    this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), this.hors);
+    this.date = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 
-    this.year = this.date.getFullYear();
-    this.month = this.date.getMonth();
-    this.day = this.date.getDate();
+    this.year = this.date.getUTCFullYear();
+    this.month = this.date.getUTCMonth();
+    this.day = this.date.getUTCDate();
 
     this.modelSubscription[modelSubscription]();
   }
 
   verifyDay() {
-    if (this.date.getDate() < this.day) {
-      this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0, this.hors);
+    if (this.date.getUTCDate() < this.day) {
+      this.date = new Date(this.date.getUTCFullYear(), this.date.getUTCMonth(), 0);
+    }
+  }
+
+  formatDate(date) {
+    return date.getUTCFullYear() + "-" + date.getUTCMonth() + "-" + date.getUTCDate();
+  }
+
+  checkRenewalDateDay() {
+    let date = this.formatDate(this.date);
+    let dateToday = this.formatDate(this.dateToday);
+    let dateInit = this.formatDate(this.dateInit);
+
+    this.checkRenewalDay = date === dateToday && dateToday !== dateInit;
+  }
+
+  checkRenewalAfterDay(callback) {
+    this.checkRenewalDateDay();
+    if (this.date.getTime() < this.dateToday.getTime()) {
+      callback();
     }
   }
 
   quarterly() {
-    this.date.setFullYear(this.date.getFullYear() + 3);
+    let yearsStep = 3;
+    let years = this.formula(this.dateToday.getUTCFullYear(), this.date.getUTCFullYear(), yearsStep);
+
+    this.date.setUTCFullYear(years - yearsStep);
+
+    this.checkRenewalAfterDay(() => this.date.setUTCFullYear(years));
+
     this.verifyDay();
   }
 
   annually() {
-    this.date.setFullYear(this.date.getFullYear() + 1);
+    let yearStep = 1;
+    let year = this.formula(this.dateToday.getUTCFullYear(), this.date.getUTCFullYear(), yearStep);
+
+    this.date.setUTCFullYear(year - yearStep);
+
+    this.checkRenewalAfterDay(() => this.date.setUTCFullYear(year));
+
     this.verifyDay();
   }
 
   monthly() {
-    this.date.setMonth(this.date.getMonth() + 1);
+    let monthStep = 1;
+    let month = this.formula(this.dateToday.getUTCMonth() - 1, this.date.getUTCMonth() - 1, monthStep);
+    this.date.setUTCMonth(month);
+    this.date.setUTCFullYear(this.dateToday.getUTCFullYear());
+
+    this.checkRenewalAfterDay(() => this.date.setUTCMonth(month + 1));
+
     this.verifyDay();
   }
 
   weekly() {
-    this.date.setDate(this.date.getDate() + 7);
+    let dayWeek = this.date.getUTCDay();
+    let dayWeekToday = this.dateToday.getUTCDay();
+    let daysStep = dayWeek - dayWeekToday;
+
+    if (daysStep === 0) {
+      this.checkRenewalDay = true;
+    }
+
+    daysStep = daysStep <= 0 ? daysStep + 7 : daysStep;
+
+    this.date.setUTCFullYear(this.dateToday.getUTCFullYear());
+    this.date.setUTCMonth(this.dateToday.getUTCMonth());
+    this.date.setUTCDate(this.dateToday.getUTCDate() + daysStep);
   }
 
   daily() {
-    this.date.setDate(this.date.getDate() + 1);
+    let dayStep = 1;
+    let day = this.formula(this.dateToday.getUTCDate(), this.date.getUTCDate(), dayStep);
+    this.date.setUTCFullYear(this.dateToday.getUTCFullYear());
+    this.date.setUTCDate(day);
+
+    this.checkRenewalDay = true;
+  }
+
+  formula(today, start, additional) {
+    let x = Math.abs(today - start) % additional;
+    return today + additional - x;
   }
 }

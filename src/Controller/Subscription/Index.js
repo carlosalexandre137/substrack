@@ -27,11 +27,14 @@ export default class Subscription {
   }
 
   date() {
-    let date = this.afterDate();
+    let [date, renewal] = this.afterDate();
     let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
     let month = this.months(date.getMonth());
 
-    return `${day} de ${month} de ${date.getFullYear()}`;
+    return {
+      date: `${day} de ${month} de ${date.getFullYear()}`,
+      renewal: renewal,
+    };
   }
 
   modelSubscription() {
@@ -39,9 +42,7 @@ export default class Subscription {
   }
 
   afterDate() {
-    let date = new SubscriptionDate(this.subscription.date, this.subscription.modelSubscription);
-
-    return date;
+    return new SubscriptionDate(this.subscription.date, this.subscription.modelSubscription);
   }
 
   months(month) {
