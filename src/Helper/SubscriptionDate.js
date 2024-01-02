@@ -18,8 +18,8 @@ export default class SubscriptionDate {
   };
 
   constructor(date, modelSubscription) {
-    this.dateInit = new Date(date);
-    this.date = new Date(date);
+    this.dateInit = new Date(date + " ");
+    this.date = this.dateInit;
     this.dateToday = new Date();
 
     this.generateDate(this.date, modelSubscription);
@@ -28,23 +28,23 @@ export default class SubscriptionDate {
   }
 
   generateDate(date, modelSubscription) {
-    this.date = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+    this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
-    this.year = this.date.getUTCFullYear();
-    this.month = this.date.getUTCMonth();
-    this.day = this.date.getUTCDate();
+    this.year = this.date.getFullYear();
+    this.month = this.date.getMonth();
+    this.day = this.date.getDate();
 
     this.modelSubscription[modelSubscription]();
   }
 
   verifyDay() {
-    if (this.date.getUTCDate() < this.day) {
-      this.date = new Date(this.date.getUTCFullYear(), this.date.getUTCMonth(), 0);
+    if (this.date.getDate() < this.day) {
+      this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
     }
   }
 
   formatDate(date) {
-    return date.getUTCFullYear() + "-" + date.getUTCMonth() + "-" + date.getUTCDate();
+    return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
   }
 
   checkRenewalDateDay() {
@@ -64,40 +64,40 @@ export default class SubscriptionDate {
 
   quarterly() {
     let yearsStep = 3;
-    let years = this.formula(this.dateToday.getUTCFullYear(), this.date.getUTCFullYear(), yearsStep);
+    let years = this.formula(this.dateToday.getFullYear(), this.date.getFullYear(), yearsStep);
 
-    this.date.setUTCFullYear(years - yearsStep);
+    this.date.setFullYear(years - yearsStep);
 
-    this.checkRenewalAfterDay(() => this.date.setUTCFullYear(years));
+    this.checkRenewalAfterDay(() => this.date.setFullYear(years));
 
     this.verifyDay();
   }
 
   annually() {
     let yearStep = 1;
-    let year = this.formula(this.dateToday.getUTCFullYear(), this.date.getUTCFullYear(), yearStep);
+    let year = this.formula(this.dateToday.getFullYear(), this.date.getFullYear(), yearStep);
 
-    this.date.setUTCFullYear(year - yearStep);
+    this.date.setFullYear(year - yearStep);
 
-    this.checkRenewalAfterDay(() => this.date.setUTCFullYear(year));
+    this.checkRenewalAfterDay(() => this.date.setFullYear(year));
 
     this.verifyDay();
   }
 
   monthly() {
     let monthStep = 1;
-    let month = this.formula(this.dateToday.getUTCMonth() - 1, this.date.getUTCMonth() - 1, monthStep);
-    this.date.setUTCMonth(month);
-    this.date.setUTCFullYear(this.dateToday.getUTCFullYear());
+    let month = this.formula(this.dateToday.getMonth() - 1, this.date.getMonth() - 1, monthStep);
+    this.date.setMonth(month);
+    this.date.setFullYear(this.dateToday.getFullYear());
 
-    this.checkRenewalAfterDay(() => this.date.setUTCMonth(month + 1));
+    this.checkRenewalAfterDay(() => this.date.setMonth(month + 1));
 
     this.verifyDay();
   }
 
   weekly() {
-    let dayWeek = this.date.getUTCDay();
-    let dayWeekToday = this.dateToday.getUTCDay();
+    let dayWeek = this.date.getDay();
+    let dayWeekToday = this.dateToday.getDay();
     let daysStep = dayWeek - dayWeekToday;
 
     if (daysStep === 0) {
@@ -106,16 +106,16 @@ export default class SubscriptionDate {
 
     daysStep = daysStep <= 0 ? daysStep + 7 : daysStep;
 
-    this.date.setUTCFullYear(this.dateToday.getUTCFullYear());
-    this.date.setUTCMonth(this.dateToday.getUTCMonth());
-    this.date.setUTCDate(this.dateToday.getUTCDate() + daysStep);
+    this.date.setFullYear(this.dateToday.getFullYear());
+    this.date.setMonth(this.dateToday.getMonth());
+    this.date.setDate(this.dateToday.getDate() + daysStep);
   }
 
   daily() {
     let dayStep = 1;
-    let day = this.formula(this.dateToday.getUTCDate(), this.date.getUTCDate(), dayStep);
-    this.date.setUTCFullYear(this.dateToday.getUTCFullYear());
-    this.date.setUTCDate(day);
+    let day = this.formula(this.dateToday.getDate(), this.date.getDate(), dayStep);
+    this.date.setFullYear(this.dateToday.getFullYear());
+    this.date.setDate(day);
 
     this.checkRenewalDay = true;
   }

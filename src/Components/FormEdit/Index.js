@@ -10,12 +10,13 @@ const FormEdit = ({ updateModal, editSubscription, subscription }) => {
   const [modelSubscription, setModelSubscription] = useState(subscription.modelSubscription);
 
   const sendSubscription = () => {
+    let subDate = date + " ";
     editSubscription(subscription, {
       nameSubscription,
       website,
       plan,
       price,
-      date,
+      subDate,
       modelSubscription,
     });
     updateModal(false);

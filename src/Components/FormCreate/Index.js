@@ -10,12 +10,13 @@ const FormCreate = ({ updateModal, saveSubscription }) => {
   const [modelSubscription, setModelSubscription] = useState("quarterly");
 
   const sendSubscription = () => {
+    let subDate = date + " ";
     saveSubscription({
       nameSubscription,
       website,
       plan,
       price,
-      date,
+      subDate,
       modelSubscription,
     });
     updateModal(false);

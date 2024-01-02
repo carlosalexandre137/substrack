@@ -8,9 +8,9 @@ const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => 
     return num < 10 ? "0" + num : num;
   };
 
-  let month = addZeroBeforeNum(new Date().getUTCMonth() + 1);
-  let day = addZeroBeforeNum(new Date().getUTCDate());
-  const dateToday = new Date().getUTCFullYear() + "-" + month + "-" + day;
+  let month = addZeroBeforeNum(new Date().getMonth() + 1);
+  let day = addZeroBeforeNum(new Date().getDate());
+  const dateToday = new Date().getFullYear() + "-" + month + "-" + day;
 
   const sendSubmitForm = (e) => {
     e.preventDefault();
