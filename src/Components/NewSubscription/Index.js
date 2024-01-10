@@ -1,24 +1,21 @@
 import Title from "../Title/Index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-const NewSubscription = ({ updateModalForm }) => {
-  const addSubscription = () => updateModalForm(true);
+const NewSubscription = () => {
+  const to = "/assinaturas/registrar";
 
   return (
     <section>
       <Title text="Nova assinatura">
-        <button type="button" title="Registrar nova assinatura" onClick={addSubscription}>
+        <Link to={to} title="Registrar nova assinatura">
           <FontAwesomeIcon icon={faCirclePlus} size="xl" />
-        </button>
+        </Link>
       </Title>
-      <button
-        type="button"
-        className="text-center bg-dark-brown py-3 px-6 text-light-white mx-auto block mt-5 rounded-lg"
-        onClick={addSubscription}
-      >
+      <Link to={to} className="text-center bg-dark-brown text-light-white rounded-lg py-3 px-6 mt-5 mx-auto block max-w-md">
         Registrar nova assinatura
-      </button>
+      </Link>
     </section>
   );
 };

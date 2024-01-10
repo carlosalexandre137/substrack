@@ -1,6 +1,6 @@
 import Input from "../Input/Index";
 import Select from "../Select/Index";
-import { modelSubscriptionList } from "../../Config/Subscription";
+import { modelSubscriptionList } from "../../config/Subscription";
 import InputMask from "../InputMask/Index";
 
 const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => {

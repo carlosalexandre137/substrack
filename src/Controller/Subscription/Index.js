@@ -1,5 +1,5 @@
-import { modelSubscriptionList } from "../../Config/Subscription";
-import SubscriptionDate from "../../Helper/SubscriptionDate";
+import { modelSubscriptionList } from "../../config/Subscription";
+import SubscriptionDate from "./../../helper/SubscriptionDate";
 
 export default class Subscription {
   constructor(subscription) {

@@ -1,8 +1,12 @@
-import Subscription from "../../Controller/Subscription/Index";
+import { useContext } from "react";
+import { SubscriptionContext } from "../../contexts/SubscriptionContext";
+import Subscription from "../../controller/subscription/Index";
 import Card from "../Card/Index";
 import Title from "../Title/Index";
 
-const MySubscriptions = ({ subscriptions, deleteSubscription, editSubscription }) => {
+const MySubscriptions = () => {
+  const { subscriptions } = useContext(SubscriptionContext);
+
   return (
     <section className="mt-14">
       <Title text="Minhas assinaturas" />
@@ -19,8 +23,8 @@ const MySubscriptions = ({ subscriptions, deleteSubscription, editSubscription }
                 date={sub.date()}
                 modelSubscription={sub.modelSubscription()}
                 key={sub.id()}
-                handleDelete={() => deleteSubscription(sub.id())}
-                handleEdit={() => editSubscription(sub)}
+                // handleDelete={() => deleteSubscription(sub.id())}
+                // handleEdit={() => editSubscription(sub)}
               />
             );
           })}
