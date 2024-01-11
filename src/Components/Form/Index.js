@@ -3,14 +3,18 @@ import Select from "../Select/Index";
 import { modelSubscriptionList } from "../../config/Subscription";
 import InputMask from "../InputMask/Index";
 
-const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => {
-  const addZeroBeforeNum = (num) => {
-    return num < 10 ? "0" + num : num;
-  };
+const addZeroBeforeNum = (num) => {
+  return num < 10 ? "0" + num : num;
+};
 
+const getDateToday = () => {
   let month = addZeroBeforeNum(new Date().getMonth() + 1);
   let day = addZeroBeforeNum(new Date().getDate());
-  const dateToday = new Date().getFullYear() + "-" + month + "-" + day;
+  return new Date().getFullYear() + "-" + month + "-" + day;
+};
+
+const Form = ({ submitForm, listSet, listValues = {}, button }) => {
+  const dateToday = getDateToday();
 
   const sendSubmitForm = (e) => {
     e.preventDefault();
@@ -22,14 +26,14 @@ const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => 
   };
 
   return (
-    <form onSubmit={sendSubmitForm}>
-      <div className="px-4 py-3">
+    <form onSubmit={sendSubmitForm} className="max-w-6xl mx-auto">
+      <div className="px-2 sm:px-4 py-3 mt-2">
         <div className="grid grid-cols-4 gap-4">
           <Input
             className="col-span-4 sm:col-span-2"
             id="nameSubscription"
             label="Nome da assinatura"
-            change={(valor) => listSet.setNameSubscription(valor)}
+            change={(value) => listSet.setNameSubscription(value)}
             required={true}
             min="5"
             max="255"
@@ -40,23 +44,23 @@ const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => 
             id="website"
             label="Link do site"
             placeholder="https://"
-            change={(valor) => listSet.setWebsite(valor)}
+            change={(value) => listSet.setWebsite(value)}
             min="10"
             max="255"
             value={value("website")}
           />
           <Input
-            className="col-span-2 sm:col-span-3"
+            className="col-span-4 sm sm:col-span-3"
             id="plan"
             label="Nome do plano"
-            change={(valor) => listSet.setPlan(valor)}
+            change={(value) => listSet.setPlan(value)}
             required={true}
             min="2"
             max="255"
             value={value("plan")}
           />
           <InputMask
-            className="col-span-2 sm:col-span-1"
+            className="col-span-4 sm:col-span-1"
             id="price"
             label="Valor do plano"
             placeholder="R$ 20,00"
@@ -65,28 +69,28 @@ const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => 
             mask="0.000.000,00"
             maskConfig={{
               reverse: true,
-              onChange: (valor) => {
-                listSet.setPrice(valor);
+              onChange: (value) => {
+                listSet.setPrice(value);
               },
             }}
             value={value("price")}
           />
           <Input
             type="date"
-            className="col-span-2"
+            className="col-span-4 sm:col-span-2"
             id="date"
             label="Inicio da assinatura"
-            change={(valor) => listSet.setDate(valor)}
+            change={(value) => listSet.setDate(value)}
             required={true}
             value={value("date")}
             max={dateToday}
             min="1991-08-06"
           />
           <Select
-            className="col-span-2"
+            className="col-span-4 sm:col-span-2"
             id="modelSubscription"
             label="Modelo de assinatura"
-            change={(valor) => listSet.setModelSubscription(valor)}
+            change={(value) => listSet.setModelSubscription(value)}
             required={true}
             value={value("modelSubscription")}
           >
@@ -100,18 +104,9 @@ const Form = ({ updateModal, submitForm, listSet, listValues = {}, button }) => 
             })}
           </Select>
         </div>
-      </div>
-      <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row sm:justify-between sm:px-6">
-        <button
-          type="button"
-          className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-          onClick={() => updateModal(false)}
-        >
-          Cancelar
-        </button>
         <button
           type="submit"
-          className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 mt-3 sm:mt-0 sm:w-auto"
+          className="rounded-md bg-blue-600 px-8 py-2 text-sm ml-auto block font-semibold text-white shadow-sm hover:bg-blue-700 mt-5"
         >
           {button}
         </button>
