@@ -1,8 +1,8 @@
-export const formatItemsSubscription = ({ nameSubscription, website, plan, price, date, modelSubscription }) => {
+export const formatItemsSubscription = ({ name, website, plan, price, date, modelSubscription }) => {
   let dateList = date.split("-");
 
   return {
-    name: nameSubscription.trim(),
+    name: name.trim(),
     website: website.trim(),
     plan: plan.trim(),
     price: price.replaceAll(".", "").replace(",", ".").trim(),

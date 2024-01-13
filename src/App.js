@@ -4,6 +4,7 @@ import { SubscriptionProvider } from "./contexts/SubscriptionContext";
 import Home from "./pages/Home";
 import Register from "./pages/Subscriptions/Register";
 import Main from "./components/Layouts/Main";
+import Edit from "./pages/Subscriptions/Edit";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
             <Route path="assinaturas">
               <Route path="registrar" element={<Register />} />
+              <Route path="editar/:id" element={<Edit />} />
             </Route>
           </Route>
         </Routes>

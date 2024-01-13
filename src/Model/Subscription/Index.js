@@ -2,6 +2,11 @@ export const subscriptionAll = () => {
   return JSON.parse(localStorage.getItem("subscriptions")) ?? [];
 };
 
+export const subscriptionFind = (id) => {
+  const subscriptions = subscriptionAll();
+  return subscriptions.find((subscription) => Number(subscription.id) === Number(id)) ?? false;
+};
+
 const subscriptionCreateId = () => {
   const subscriptions = subscriptionAll();
   const identifiers = subscriptions.map((item) => item.id);
@@ -33,18 +38,19 @@ export const subscriptionDelete = (id) => {
   localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
 };
 
-export const subscriptionUpdate = (subscription, newSubscription) => {
+export const subscriptionUpdate = (id, newSubscription) => {
   const subscriptions = subscriptionAll();
   const newSubscriptions = [];
 
-  newSubscription.id = subscription.id;
+  newSubscription.id = Number(id);
 
   for (const key in subscriptions) {
     let item = subscriptions[key];
-    if (item.id === subscription.id) {
+    if (item.id === Number(id)) {
       item = newSubscription;
     }
     newSubscriptions.push(item);
   }
   localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
+  return newSubscription;
 };

@@ -2,6 +2,7 @@ import Input from "../Input/Index";
 import Select from "../Select/Index";
 import { modelSubscriptionList } from "../../config/Subscription";
 import InputMask from "../InputMask/Index";
+import { useNavigate } from "react-router-dom";
 
 const addZeroBeforeNum = (num) => {
   return num < 10 ? "0" + num : num;
@@ -15,6 +16,7 @@ const getDateToday = () => {
 
 const Form = ({ submitForm, listSet, listValues = {}, button }) => {
   const dateToday = getDateToday();
+  const navigate = useNavigate();
 
   const sendSubmitForm = (e) => {
     e.preventDefault();
@@ -31,13 +33,13 @@ const Form = ({ submitForm, listSet, listValues = {}, button }) => {
         <div className="grid grid-cols-4 gap-4">
           <Input
             className="col-span-4 sm:col-span-2"
-            id="nameSubscription"
+            id="name"
             label="Nome da assinatura"
-            change={(value) => listSet.setNameSubscription(value)}
+            change={(value) => listSet.setName(value)}
             required={true}
             min="5"
             max="255"
-            value={value("nameSubscription")}
+            value={value("name")}
           />
           <Input
             className="col-span-4 sm:col-span-2"
@@ -104,12 +106,18 @@ const Form = ({ submitForm, listSet, listValues = {}, button }) => {
             })}
           </Select>
         </div>
-        <button
-          type="submit"
-          className="rounded-md bg-blue-600 px-8 py-2 text-sm ml-auto block font-semibold text-white shadow-sm hover:bg-blue-700 mt-5"
-        >
-          {button}
-        </button>
+        <div className="flex justify-between mt-5">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="rounded-md bg-cyan-600 px-5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-cyan-700"
+          >
+            Voltar
+          </button>
+          <button type="submit" className="rounded-md bg-blue-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700">
+            {button}
+          </button>
+        </div>
       </div>
     </form>
   );

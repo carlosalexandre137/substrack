@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useSubscriptionContext } from "./../../hooks/useSubscriptionContext";
-import { formatItemsSubscription } from "./../../utils/subscription";
 
 import Form from "../../components/Form/Index";
 
 const Register = () => {
-  const [nameSubscription, setNameSubscription] = useState();
+  const [name, setName] = useState();
   const [website, setWebsite] = useState();
   const [plan, setPlan] = useState();
   const [price, setPrice] = useState();
@@ -14,8 +13,8 @@ const Register = () => {
   const { addSubscription } = useSubscriptionContext();
 
   const sendSubscription = () => {
-    addSubscription(formatItemsSubscription({ nameSubscription, website, plan, price, date, modelSubscription }));
-    setNameSubscription("");
+    addSubscription({ name, website, plan, price, date, modelSubscription });
+    setName("");
     setWebsite("");
     setPlan("");
     setPrice("");
@@ -29,9 +28,9 @@ const Register = () => {
 
       <Form
         submitForm={sendSubscription}
-        listSet={{ setNameSubscription, setWebsite, setPlan, setPrice, setDate, setModelSubscription }}
+        listSet={{ setName, setWebsite, setPlan, setPrice, setDate, setModelSubscription }}
         listValues={{
-          nameSubscription,
+          name,
           website,
           plan,
           price,

@@ -3,7 +3,7 @@ import { formatNumber } from "../../utils/subscription";
 import SubscriptionDate from "./../../helper/SubscriptionDate";
 
 export default class Subscription {
-  constructor(subscription) {
+  constructor(subscription = false) {
     this.subscription = subscription;
   }
 
@@ -24,7 +24,7 @@ export default class Subscription {
   }
 
   price() {
-    return formatNumber(this.subscription.price);
+    return formatNumber(this.subscription.price) ?? false;
   }
 
   date() {
@@ -36,6 +36,10 @@ export default class Subscription {
       date: `${day} de ${month} de ${date.getFullYear()}`,
       renewal: renewal,
     };
+  }
+
+  initDate() {
+    return this.subscription ? this.subscription.date.split("T")[0] : false;
   }
 
   afterDate() {
