@@ -3,6 +3,7 @@ import Select from "../Select/Index";
 import { modelSubscriptionList } from "../../config/Subscription";
 import InputMask from "../InputMask/Index";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const addZeroBeforeNum = (num) => {
   return num < 10 ? "0" + num : num;
@@ -14,11 +15,12 @@ const getDateToday = () => {
   return new Date().getFullYear() + "-" + month + "-" + day;
 };
 
-const Form = ({ submitForm, listSet, listValues = {}, button }) => {
+const Form = ({ submitForm, listSet, listValues = {}, button, message }) => {
   const dateToday = getDateToday();
   const navigate = useNavigate();
 
   const sendSubmitForm = (e) => {
+    toast.success(message, { toastId: 1, autoClose: 3000 });
     e.preventDefault();
     submitForm();
   };

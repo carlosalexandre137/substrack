@@ -46,6 +46,7 @@ const Edit = () => {
           modelSubscription,
         }}
         button="Editar"
+        message="Assinatura alterada com sucesso!"
       />
     </section>
   );

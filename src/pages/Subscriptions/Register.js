@@ -38,6 +38,7 @@ const Register = () => {
           modelSubscription,
         }}
         button="Registrar"
+        message="Assinatura registrada com sucesso!"
       />
     </section>
   );
