@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { SubscriptionContext } from "../../contexts/SubscriptionContext";
 import Subscription from "../../controller/subscription/Index";
 import Card from "../Card/Index";
 import Title from "../Title/Index";
+import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 
 const MySubscriptions = () => {
-  const { subscriptions } = useContext(SubscriptionContext);
+  const { subscriptions } = useSubscriptionContext();
 
   return (
     <section>
@@ -16,7 +15,7 @@ const MySubscriptions = () => {
             const sub = new Subscription(subscription);
             return (
               <Card
-                nameSubscription={sub.name()}
+                name={sub.name()}
                 website={sub.website()}
                 plan={sub.plan()}
                 price={sub.price()}

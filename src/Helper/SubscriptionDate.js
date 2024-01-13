@@ -18,7 +18,7 @@ export default class SubscriptionDate {
   };
 
   constructor(date, modelSubscription) {
-    this.dateInit = new Date(date + " ");
+    this.dateInit = new Date(date);
     this.date = this.dateInit;
     this.dateToday = new Date();
 

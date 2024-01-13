@@ -10,3 +10,11 @@ export const formatItemsSubscription = ({ nameSubscription, website, plan, price
     modelSubscription: modelSubscription,
   };
 };
+
+export const formatNumber = (num, lang = "pt-BR") => {
+  return Number(num).toLocaleString(lang, {
+    style: "decimal",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+};

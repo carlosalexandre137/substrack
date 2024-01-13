@@ -15,6 +15,12 @@ const Register = () => {
 
   const sendSubscription = () => {
     addSubscription(formatItemsSubscription({ nameSubscription, website, plan, price, date, modelSubscription }));
+    setNameSubscription("");
+    setWebsite("");
+    setPlan("");
+    setPrice("");
+    setDate("");
+    setModelSubscription("quarterly");
   };
 
   return (

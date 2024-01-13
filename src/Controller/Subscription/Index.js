@@ -1,4 +1,5 @@
 import { modelSubscriptionList } from "../../config/Subscription";
+import { formatNumber } from "../../utils/subscription";
 import SubscriptionDate from "./../../helper/SubscriptionDate";
 
 export default class Subscription {
@@ -11,7 +12,7 @@ export default class Subscription {
   }
 
   name() {
-    return this.subscription.nameSubscription;
+    return this.subscription.name;
   }
 
   website() {
@@ -23,7 +24,7 @@ export default class Subscription {
   }
 
   price() {
-    return this.subscription.price;
+    return formatNumber(this.subscription.price);
   }
 
   date() {
@@ -37,12 +38,12 @@ export default class Subscription {
     };
   }
 
-  modelSubscription() {
-    return modelSubscriptionList[this.subscription.modelSubscription].text;
-  }
-
   afterDate() {
     return new SubscriptionDate(this.subscription.date, this.subscription.modelSubscription);
+  }
+
+  modelSubscription() {
+    return modelSubscriptionList[this.subscription.modelSubscription].text;
   }
 
   months(month) {
