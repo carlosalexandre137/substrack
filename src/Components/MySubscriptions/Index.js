@@ -1,6 +1,7 @@
 import Subscription from "../../controller/subscription/Index";
-import Card from "../Card/Index";
+
 import Title from "../Title/Index";
+import Card from "../Card/Index";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 
 const MySubscriptions = () => {
@@ -15,15 +16,14 @@ const MySubscriptions = () => {
             const sub = new Subscription(subscription);
             return (
               <Card
+                id={sub.id()}
+                key={sub.id()}
                 name={sub.name()}
                 website={sub.website()}
                 plan={sub.plan()}
                 price={sub.price()}
                 date={sub.date()}
                 modelSubscription={sub.modelSubscription()}
-                key={sub.id()}
-                // handleDelete={() => deleteSubscription(sub.id())}
-                // handleEdit={() => editSubscription(sub)}
               />
             );
           })}

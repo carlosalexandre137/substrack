@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faGlobe, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 
-const Card = ({ name, website, plan, price, date, modelSubscription, handleDelete, handleEdit }) => {
+const Card = ({ id, name, website, plan, price, date, modelSubscription }) => {
+  const { removeSubscription } = useSubscriptionContext();
   const eventClickDelete = () => {
-    handleDelete();
-  };
-
-  const eventClickEdit = () => {
-    handleEdit();
+    removeSubscription(id);
   };
 
   return (
@@ -18,9 +17,9 @@ const Card = ({ name, website, plan, price, date, modelSubscription, handleDelet
           <a href={website} target="_blank" rel="noreferrer" className="hover:text-light-pink">
             <FontAwesomeIcon icon={faGlobe} size="lg" />
           </a>
-          <button type="button" className="hover:text-light-pink" onClick={eventClickEdit}>
+          <Link to={`/assinaturas/editar/${id}`} className="hover:text-light-pink">
             <FontAwesomeIcon icon={faEdit} size="lg" />
-          </button>
+          </Link>
           <button type="button" className="hover:text-light-pink" onClick={eventClickDelete}>
             <FontAwesomeIcon icon={faTrashAlt} size="lg" />
           </button>
