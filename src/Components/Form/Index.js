@@ -40,7 +40,7 @@ const Form = ({ submitForm, listSet, listValues = {}, button, message }) => {
             change={(value) => listSet.setName(value)}
             required={true}
             min="5"
-            max="255"
+            max="110"
             value={value("name")}
           />
           <Input
@@ -60,7 +60,7 @@ const Form = ({ submitForm, listSet, listValues = {}, button, message }) => {
             change={(value) => listSet.setPlan(value)}
             required={true}
             min="2"
-            max="255"
+            max="80"
             value={value("plan")}
           />
           <InputMask

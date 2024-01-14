@@ -10,13 +10,17 @@ const Card = ({ id, name, website, plan, price, date, modelSubscription }) => {
   };
 
   return (
-    <div className="flex flex-col bg-dark-brown rounded-lg p-3 drop-shadow shadow-sm shadow-red-500/60 min-w-[250px] md:min-w-[200px]">
+    <div className="flex flex-col bg-dark-brown rounded-lg p-3 drop-shadow shadow-sm shadow-red-500/60 w-80 sm:w-full">
       <div className="header flex justify-between">
-        <h3 className="font-medium text-light-white text-xl">{name}</h3>
-        <div className="actions text-light-purple flex gap-4 items-center">
-          <a href={website} target="_blank" rel="noreferrer" className="hover:text-light-pink">
-            <FontAwesomeIcon icon={faGlobe} size="lg" />
-          </a>
+        <h3 className="font-medium text-light-white text-xl truncate" title={name}>
+          {name}
+        </h3>
+        <div className="actions text-light-purple flex gap-4 items-center ml-2">
+          {website && (
+            <a href={website} target="_blank" rel="noreferrer" className="hover:text-light-pink">
+              <FontAwesomeIcon icon={faGlobe} size="lg" />
+            </a>
+          )}
           <Link to={`/assinaturas/editar/${id}`} className="hover:text-light-pink">
             <FontAwesomeIcon icon={faEdit} size="lg" />
           </Link>
