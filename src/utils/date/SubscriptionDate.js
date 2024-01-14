@@ -52,6 +52,9 @@ export default class SubscriptionDate {
     let dateToday = this.formatDate(this.dateToday);
     let dateInit = this.formatDate(this.dateInit);
 
+    console.log(date);
+    console.log(dateToday);
+    console.log(dateInit);
     this.checkRenewalDay = date === dateToday && dateToday !== dateInit;
   }
 
@@ -100,7 +103,10 @@ export default class SubscriptionDate {
     let dayWeekToday = this.dateToday.getDay();
     let daysStep = dayWeek - dayWeekToday;
 
-    if (daysStep === 0) {
+    let dateToday = this.formatDate(this.dateToday);
+    let dateInit = this.formatDate(this.dateInit);
+
+    if (daysStep === 0 && dateToday !== dateInit) {
       this.checkRenewalDay = true;
     }
 
