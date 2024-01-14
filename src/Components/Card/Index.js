@@ -10,7 +10,7 @@ const Card = ({ id, name, website, plan, price, date, modelSubscription }) => {
   };
 
   return (
-    <div className="flex flex-col bg-dark-brown rounded-lg p-3 drop-shadow shadow-sm shadow-red-500/60 w-80 sm:w-full">
+    <div className="flex flex-col bg-dark-brown rounded-lg p-3 drop-shadow shadow-sm shadow-red-500/60 w-72 sm:w-full">
       <div className="header flex justify-between">
         <h3 className="font-medium text-light-white text-xl truncate" title={name}>
           {name}
