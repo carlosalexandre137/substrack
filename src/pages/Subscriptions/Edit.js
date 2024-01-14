@@ -4,6 +4,7 @@ import Form from "../../components/Form/Index";
 import { subscriptionFind } from "../../model/subscription/Index";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import Subscription from "../../controller/subscription/Index";
+import NotFound from "../../components/NotFound/Index";
 
 const Edit = () => {
   const id = useParams().id;
@@ -19,7 +20,7 @@ const Edit = () => {
   const { editSubscription } = useSubscriptionContext();
 
   if (!subscription) {
-    return "NOT FOUND...";
+    return <NotFound />;
   }
 
   const sendSubscription = () => {

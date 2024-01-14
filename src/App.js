@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Subscriptions/Register";
 import Main from "./components/Layouts/Main";
 import Edit from "./pages/Subscriptions/Edit";
+import NotFound from "components/NotFound/Index";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
               <Route path="registrar" element={<Register />} />
               <Route path="editar/:id" element={<Edit />} />
             </Route>
+
+            <Route path="*" element={<NotFound />}></Route>
           </Route>
         </Routes>
       </SubscriptionProvider>
