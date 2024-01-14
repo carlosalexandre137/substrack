@@ -1,6 +1,6 @@
 import { modelSubscriptionList } from "config/Subscription";
 import { formatNumber } from "utils/subscription";
-import SubscriptionDate from "helper/SubscriptionDate";
+import SubscriptionDate from "utils/date/SubscriptionDate";
 
 export default class Subscription {
   constructor(subscription = false) {
