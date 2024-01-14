@@ -29,7 +29,7 @@ const Edit = () => {
   const nameSubscription = subscription.name;
 
   return (
-    <section className="my-5">
+    <section className="container mx-auto my-5">
       <h1 className="text-2xl font-bold">
         Editar assinatura <span className="text-light-green">{nameSubscription}</span>
       </h1>

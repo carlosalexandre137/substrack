@@ -30,7 +30,7 @@ const Form = ({ submitForm, listSet, listValues = {}, button, message }) => {
   };
 
   return (
-    <form onSubmit={sendSubmitForm} className="max-w-6xl mx-auto">
+    <form onSubmit={sendSubmitForm} className="sm:w-5/6 mx-auto">
       <div className="px-2 sm:px-4 py-3 mt-2">
         <div className="grid grid-cols-4 gap-4">
           <Input

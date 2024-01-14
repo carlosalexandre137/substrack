@@ -8,10 +8,10 @@ const MySubscriptions = () => {
   const { subscriptions } = useSubscriptionContext();
 
   return (
-    <section>
+    <section className="container mx-auto">
       <Title text="Minhas assinaturas" />
       {subscriptions.length > 0 ? (
-        <div className="grid grid-flow-col sm:grid-flow-row sm:grid-cols-2 lg:grid-cols-3 overflow-x-auto overflow-y-hidden gap-5 mt-5 pb-1">
+        <div className="grid grid-flow-col sm:grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-x-auto overflow-y-hidden gap-5 mt-5 pb-1">
           {subscriptions.map((subscription) => {
             const sub = new Subscription(subscription);
             return (

@@ -7,7 +7,7 @@ const NewSubscription = () => {
   const to = "/assinaturas/registrar";
 
   return (
-    <section>
+    <section className="container mx-auto">
       <Title text="Nova assinatura">
         <Link to={to} title="Registrar nova assinatura">
           <FontAwesomeIcon icon={faCirclePlus} size="xl" />

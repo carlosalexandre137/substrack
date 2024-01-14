@@ -23,7 +23,7 @@ const Register = () => {
   };
 
   return (
-    <section className="my-5">
+    <section className="container mx-auto my-5">
       <h1 className="text-2xl font-bold">Registrar nova assinatura</h1>
 
       <Form
