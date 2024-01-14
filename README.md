@@ -31,15 +31,28 @@ Substrack é um projeto desenvolvido em React.js que funciona como um gerenciado
 ## Estrutura do Projeto
 
 - `src/` : Contém o código-fonte do projeto.
-  - `Components/` : Componentes React reutilizáveis.
-  - `Config/` : Constantes pré-definidas do projeto.
-  - `Controller/` : Auxiliar na formatação de valores para a visualização.
-  - `Helper/` : Funcionalidades reutilizáveis.
-  - `Model/` : Conexão com o banco de dados.
+  - `assets/` : Armazenar arquivos estativos.
+  - `components/` : Componentes React reutilizáveis.
+  - `config/` : Constantes pré-definidas do projeto.
+  - `contexts/` : Contextos do projeto para compartilhar dados.
+  - `controller/` : Auxiliar na formatação de valores para a visualização.
+  - `hooks/` : Hooks personalizados para compartilhar lógicas entre os componentes
+  - `model/` : Conexão com o banco de dados (localstorage).
+  - `pages/` : Páginas do projeto.
+  - `reducers/` : Gerenciar estados do projeto.
+  - `utils/` : Funcionalidades reutilizáveis.
 
 ## Linha do Tempo
 
-### [Versão 1.0.0] - [01/01/2024]
+### [Versão 2.0.0] - [14/01/2024]
+
+- Criação de páginas utilizando rotas com o react-router-dom
+- Utilização de rotas aninhadas e dinâmicas.
+- Navegação no header.
+- Criação de Hooks personalizados, Contexts e Reducers.
+- Utilizando a biblioteca react-toastify para enviar notificações de sucesso.
+
+### [Versão 1.0.0] - [02/01/2024]
 
 - Funcionalidade de adicionar/editar/remover assinaturas.
 - Visualização básica de assinaturas.
@@ -48,8 +61,8 @@ Substrack é um projeto desenvolvido em React.js que funciona como um gerenciado
 
 ### Próximas Atualizações Planejadas
 
-- React Router
-- Context API
+- Vite e Styled Components
+- TypeScript
 
 ## Acesso ao Projeto
 
