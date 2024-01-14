@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faGlobe, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
+import { useSubscriptionContext } from "hooks/useSubscriptionContext";
 
 const Card = ({ id, name, website, plan, price, date, modelSubscription }) => {
   const { removeSubscription } = useSubscriptionContext();

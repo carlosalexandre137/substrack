@@ -1,4 +1,3 @@
-import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SubscriptionProvider } from "./contexts/SubscriptionContext";
 import Home from "./pages/Home";

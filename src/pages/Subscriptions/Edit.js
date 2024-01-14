@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import Form from "../../components/Form/Index";
-import { subscriptionFind } from "../../model/subscription/Index";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
-import Subscription from "../../controller/subscription/Index";
-import NotFound from "../../components/NotFound/Index";
+import Form from "components/Form/Index";
+import { subscriptionFind } from "model/subscription/Index";
+import { useSubscriptionContext } from "hooks/useSubscriptionContext";
+import Subscription from "controller/subscription/Index";
+import NotFound from "components/NotFound/Index";
 import Title from "components/Title/Index";
 
 const Edit = () => {

@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
-import { SubscriptionReducer } from "../reducers/SubscriptionReducer";
-import { subscriptionAll } from "../model/subscription/Index";
+import { SubscriptionReducer } from "reducers/SubscriptionReducer";
+import { subscriptionAll } from "model/subscription/Index";
 
 export const SubscriptionContext = createContext();
 SubscriptionContext.displayName = "Subscriptions";

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useSubscriptionContext } from "./../../hooks/useSubscriptionContext";
+import { useSubscriptionContext } from "hooks/useSubscriptionContext";
 
-import Form from "../../components/Form/Index";
+import Form from "components/Form/Index";
 import Title from "components/Title/Index";
 
 const Register = () => {
