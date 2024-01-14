@@ -5,6 +5,7 @@ import { subscriptionFind } from "../../model/subscription/Index";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import Subscription from "../../controller/subscription/Index";
 import NotFound from "../../components/NotFound/Index";
+import Title from "components/Title/Index";
 
 const Edit = () => {
   const id = useParams().id;
@@ -27,14 +28,11 @@ const Edit = () => {
     editSubscription(id, { name, website, plan, price, date, modelSubscription });
   };
 
-  const nameSubscription = subscription.name;
-
   return (
     <section className="container mx-auto my-5">
-      <h1 className="text-2xl font-bold">
-        Editar assinatura <span className="text-light-green">{nameSubscription}</span>
-      </h1>
-
+      <Title>
+        Editar assinatura <span className="text-light-green">{subscription.name}</span>
+      </Title>
       <Form
         submitForm={sendSubscription}
         listSet={{ setName, setWebsite, setPlan, setPrice, setDate, setModelSubscription }}

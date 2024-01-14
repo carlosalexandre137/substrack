@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSubscriptionContext } from "./../../hooks/useSubscriptionContext";
 
 import Form from "../../components/Form/Index";
+import Title from "components/Title/Index";
 
 const Register = () => {
   const [name, setName] = useState();
@@ -24,7 +25,7 @@ const Register = () => {
 
   return (
     <section className="container mx-auto my-5">
-      <h1 className="text-2xl font-bold">Registrar nova assinatura</h1>
+      <Title>Registrar nova assinatura</Title>
 
       <Form
         submitForm={sendSubscription}

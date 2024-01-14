@@ -9,7 +9,7 @@ const MySubscriptions = () => {
 
   return (
     <section className="container mx-auto">
-      <Title text="Minhas assinaturas" />
+      <Title>Minhas assinaturas</Title>
       {subscriptions.length > 0 ? (
         <div className="grid grid-flow-col sm:grid-flow-row sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-x-auto overflow-y-hidden gap-5 mt-5 pb-1">
           {subscriptions.map((subscription) => {

@@ -8,9 +8,10 @@ const NewSubscription = () => {
 
   return (
     <section className="container mx-auto">
-      <Title text="Nova assinatura">
+      <Title between={true}>
+        Nova assinatura
         <Link to={to} title="Registrar nova assinatura">
-          <FontAwesomeIcon icon={faCirclePlus} size="xl" />
+          <FontAwesomeIcon icon={faCirclePlus} size="lg" />
         </Link>
       </Title>
       <Link to={to} className="text-center bg-dark-brown text-light-white rounded-lg py-3 px-6 mt-5 mx-auto block max-w-md">
