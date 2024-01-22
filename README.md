@@ -12,8 +12,9 @@ Substrack é um projeto desenvolvido em React.js que funciona como um gerenciado
 
 ## Tecnologias Utilizadas
 
-- React.js
-- Tailwind CSS
+- React com Typescript
+- Vite
+- Styled Components
 
 ## Pré-requisitos
 
@@ -25,8 +26,8 @@ Substrack é um projeto desenvolvido em React.js que funciona como um gerenciado
 1. Clone este repositório.
 2. Navegue até o diretório do projeto via terminal.
 3. Execute o comando `npm install` para instalar as dependências.
-4. Execute o comando `npm start` para iniciar o servidor de desenvolvimento.
-5. Acesse o aplicativo em [http://localhost:3000](http://localhost:3000) no seu navegador.
+4. Execute o comando `npm run dev` para iniciar o servidor de desenvolvimento.
+5. Acesse o aplicativo em [http://localhost:5173](http://localhost:5173) no seu navegador.
 
 ## Estrutura do Projeto
 
