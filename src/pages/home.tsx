@@ -1,7 +1,11 @@
+import NewSubscription from "../components/NewSubscription";
+
 const Home = () => {
-  return <>
-    <h1>HOME</h1>
-  </>;
-}
+  return (
+    <>
+      <NewSubscription />
+    </>
+  );
+};
 
 export default Home;

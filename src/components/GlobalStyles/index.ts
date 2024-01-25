@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-  --color-purple-dark: #451952;
+	--color-purple-dark: #451952;
   --color-black-dark: #181616;
   --color-brown-dark: #662549;
 
@@ -13,6 +13,14 @@ const GlobalStyles = createGlobalStyle`
 
   --font-default: 'Roboto', sans-serif;
   --font-title: 'Montserrat', sans-serif;
+}
+.icon-sm {
+	width: 24px;
+	height: 24px;
+}
+.icon-md {
+	width: 30px;
+	height: 30px;
 }
 * {
 	box-sizing: border-box;
