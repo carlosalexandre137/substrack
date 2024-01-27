@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./components/GlobalStyles";
 import Main from "./components/Layouts/main";
 import Home from "./pages/home";
+import Register from "./pages/register";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />}>
           <Route index element={<Home />} />
+          <Route path="assinaturas/registrar" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
