@@ -8,7 +8,7 @@ export const HeaderStyled = styled.header`
   top: 0;
   width: 100%;
   z-index: 10;
-  box-shadow: 0px 3px 8px #74647c;
+  box-shadow: 0px 3px 8px #3c363f;
 
   h1 {
     font-family: var(--font-title);
