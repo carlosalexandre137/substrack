@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header";
+import Footer from "../Footer";
 
 interface MainProps {
   children?: string | JSX.Element;
@@ -12,6 +13,8 @@ const Main = ({ children }: MainProps) => {
 
       <Outlet />
       {children}
+
+      <Footer />
     </>
   );
 };
