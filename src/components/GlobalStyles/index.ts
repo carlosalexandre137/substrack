@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
   --font-default: 'Roboto', sans-serif;
   --font-title: 'Montserrat', sans-serif;
 }
+.icon-xl {
+	width: 16px;
+	height: 16px;
+}
 .icon-sm {
 	width: 24px;
 	height: 24px;
