@@ -7,6 +7,7 @@ interface SubscriptionContextType {
 }
 
 export const SubscriptionContext = createContext<SubscriptionContextType | null>(null);
+SubscriptionContext.displayName = "Subscription";
 
 interface SubscriptionProviderProps {
   children: React.ReactNode;
@@ -14,5 +15,9 @@ interface SubscriptionProviderProps {
 
 export const SubscriptionProvider = ({ children }: SubscriptionProviderProps) => {
   const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
-  return <SubscriptionContext.Provider value={{ subscriptions, setSubscriptions }}>{children}</SubscriptionContext.Provider>;
+  return (
+    <SubscriptionContext.Provider value={{ subscriptions, setSubscriptions }}>
+      {children}
+    </SubscriptionContext.Provider>
+  );
 };

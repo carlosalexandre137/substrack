@@ -10,73 +10,100 @@ import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import { useState } from "react";
 
 const Register = () => {
-  const { subscriptions, setSubscriptions } = useSubscriptionContext();
   const [name, setName] = useState<string>("");
   const [link, setLink] = useState<string>("");
   const [plan, setPlan] = useState<string>("");
-  const [price, setPrice] = useState<number>(0);
-  const [date, setDate] = useState<Date>();
+  const [price, setPrice] = useState<number>(1);
+  const [date, setDate] = useState<string>("");
   const [modality, setModality] = useState<string>("");
+  const { addSubscription } = useSubscriptionContext();
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const dateForm = new Date(date.replace(/-/g, ","));
+
+    addSubscription({
+      name,
+      link,
+      plan,
+      price: price,
+      date: dateForm,
+      modality,
+    });
+
+    setName("");
+    setLink("");
+    setPlan("");
+    setPrice(1);
+    setDate("");
+    setModality("");
   }
 
   return (
     <Container>
       <Title>Registrar nova assinatura</Title>
       <FormStyled onSubmit={submit}>
-        <Input<string>
+        <Input
           label="Nome da assinatura"
           id="name"
           placeholder="Spotify"
           className="input_name"
+          value={name}
           set={(value) => setName(value)}
           min={4}
           max={155}
           required
         />
-        <Input<string>
+        <Input
           label="Link do site"
           id="link"
           placeholder="https://..."
           className="input_link"
+          value={link}
           set={(value) => setLink(value)}
           min={4}
           max={255}
         />
-        <Input<string>
+        <Input
           label="Nome do plano"
           id="plan"
           placeholder="Premium"
           className="input_plan"
+          value={plan}
           set={(value) => setPlan(value)}
           min={3}
           max={155}
           required
         />
-        <Input<number>
+        <Input
+          type="number"
           label="Valor do plano"
           id="price"
           placeholder="R$ 20,00"
           className="input_price"
-          set={(value) => setPrice(value)}
+          value={price.toString()}
+          set={(value) => setPrice(parseFloat(value.replace(",", ".")))}
           min={1}
           max={10}
           required
+          autoComplete={false}
+          step="0.5"
         />
-        <Input<Date>
+        <Input
           type="date"
           label="Início da assinatura"
           id="date"
           className="input_date"
+          value={date}
           set={(value) => setDate(value)}
           required
         />
-        <Select<string>
+        <Select
           label="Modalidade da assinatura"
           id="modality"
           className="input_modality"
+          value={modality}
           set={(value) => setModality(value)}
           required
         >
