@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 import { TitleStyled } from "./styled";
 
 interface TitleProps {
-  justifyContent?: string;
   children: ReactNode;
+  justifyContent?: string;
 }
 
-const Title = ({ justifyContent = "space-between", children }: TitleProps) => {
+const Title = ({ children, justifyContent = "space-between" }: TitleProps) => {
   return <TitleStyled $justifyContent={justifyContent}>{children}</TitleStyled>;
 };
 

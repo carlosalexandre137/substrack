@@ -27,13 +27,13 @@ export const HeaderStyled = styled.header`
   }
 `;
 
-const IconLinkElement = ({ children, className, to }: LinkProps) => (
+const LinkElement = ({ children, className, to }: LinkProps) => (
   <Link to={to} className={className}>
     {children}
   </Link>
 );
 
-export const IconStyled = styled(IconLinkElement)`
+export const IconStyled = styled(LinkElement)`
   display: block;
   width: 24px;
   height: 24px;
@@ -83,12 +83,6 @@ export const FooterStyled = styled.footer`
     }
   }
 `;
-
-const LinkElement = ({ className, children, to }: LinkProps) => (
-  <Link to={to} className={className}>
-    {children}
-  </Link>
-);
 
 export const LinkStyled = styled(LinkElement)`
   flex-grow: 1;

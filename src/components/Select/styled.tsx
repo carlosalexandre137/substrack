@@ -1,17 +1,6 @@
 import styled from "styled-components";
-import { SelectProps } from "./interface";
 
-interface SelectElementProps extends SelectProps {
-  className?: string;
-}
-
-const SelectElement = ({ className, children, id }: SelectElementProps) => (
-  <select className={className} id={id}>
-    {children}
-  </select>
-);
-
-export const SelectStyled = styled(SelectElement)`
+export const SelectStyled = styled.select`
   font-size: 0.95rem;
   width: 100%;
   padding: 8px 12px;

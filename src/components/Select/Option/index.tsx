@@ -1,8 +1,8 @@
-interface OptionProps {
-  value: string;
+export interface OptionProps {
   children: string;
+  value: string;
 }
 
-const Option = ({ value, children }: OptionProps) => <option value={value}>{children}</option>;
+const Option = ({ children, value }: OptionProps) => <option value={value}>{children}</option>;
 
 export default Option;

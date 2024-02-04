@@ -1,13 +1,16 @@
-import { LabelStyled } from "../Input/styled";
 import { SelectStyled } from "./styled";
-import { SelectProps } from "./interface";
+import { LabelStyled } from "../Label";
+import { ReactElement } from "react";
+import { OptionProps } from "./Option";
 
-interface SelectElementProps extends SelectProps {
+interface SelectElementProps {
+  children: ReactElement<OptionProps>[] | ReactElement<OptionProps>;
+  id: string;
   label: string;
   className?: string;
 }
 
-const Select = ({ label, id, children, className }: SelectElementProps) => {
+const Select = ({ children, id, label, className }: SelectElementProps) => {
   return (
     <div className={className}>
       <LabelStyled htmlFor={id}>{label}</LabelStyled>

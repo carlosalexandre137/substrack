@@ -1,15 +1,15 @@
 import { ButtonStyled } from "./styled";
 
 interface ButtonProps {
-  type?: "button" | "submit";
   children: string | JSX.Element;
+  type?: "button" | "submit";
   theme?: string;
   click?: () => void;
 }
 
-const Button = ({ type = "button", children, theme = "primary", click }: ButtonProps) => {
+const Button = ({ children, type = "button", theme = "primary", click }: ButtonProps) => {
   return (
-    <ButtonStyled type={type} click={click} $theme={theme}>
+    <ButtonStyled type={type} onClick={click} $theme={theme}>
       {children}
     </ButtonStyled>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link, LinkProps } from "react-router-dom";
 
-const LinkStyled = ({ className, children, to }: LinkProps) => {
+const LinkStyled = ({ children, className, to }: LinkProps) => {
   return (
     <Link to={to} className={className}>
       {children}
@@ -18,6 +18,7 @@ export const IconStyled = styled(LinkStyled)`
 `;
 
 export const ButtonStyled = styled(LinkStyled)`
+  font-family: var(--font-default);
   background-color: var(--color-brown-dark);
   color: var(--color-white-light);
   border-radius: 8px;

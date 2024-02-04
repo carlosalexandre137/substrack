@@ -1,7 +1,12 @@
 import { NavLink, NavLinkProps } from "react-router-dom";
 import styled from "styled-components";
 
-const NavLinkElement = ({ to, className, children }: NavLinkProps) => (
+export const MenuListStyled = styled.ul`
+  display: flex;
+  gap: 1.25rem;
+`;
+
+const NavLinkElement = ({ children, className, to }: NavLinkProps) => (
   <li>
     <NavLink to={to} className={className}>
       {children}
@@ -24,9 +29,4 @@ export const LinkStyled = styled(NavLinkElement)`
   &.active {
     color: var(--color-green-light);
   }
-`;
-
-export const MenuListStyled = styled.ul`
-  display: flex;
-  gap: 1.25rem;
 `;

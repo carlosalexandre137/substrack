@@ -24,6 +24,7 @@ const Register = () => {
         <Select label="Modalidade da assinatura" id="modality" className="input_modality">
           <Option value="quarterly">Trimestralmente</Option>
           <Option value="annually">Anualmente</Option>
+          <Option value="monthly">Mensalmente</Option>
         </Select>
         <ContainerButtonsStyled className="container_buttons">
           <Link to="/" theme="cyan">

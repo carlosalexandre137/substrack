@@ -1,14 +1,15 @@
-import { InputStyled, LabelStyled } from "./styled";
+import { LabelStyled } from "../Label";
+import { InputStyled } from "./styled";
 
 interface InputProps {
-  type?: string;
-  label: string;
   id: string;
+  label: string;
+  type?: string;
   placeholder?: string;
   className?: string;
 }
 
-const Input = ({ type = "text", label, id, placeholder, className }: InputProps) => {
+const Input = ({ id, label, type = "text", placeholder, className }: InputProps) => {
   return (
     <div className={className}>
       <LabelStyled htmlFor={id}>{label}</LabelStyled>

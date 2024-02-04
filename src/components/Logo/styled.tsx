@@ -1,7 +1,7 @@
 import { Link, LinkProps } from "react-router-dom";
 import styled from "styled-components";
 
-const LinkElement = ({ className, children, to }: LinkProps) => (
+const LinkElement = ({ children, className, to }: LinkProps) => (
   <Link to={to} className={className}>
     {children}
   </Link>
