@@ -1,5 +1,5 @@
-import MySubscription from "../components/MySubscriptions";
-import NewSubscription from "../components/NewSubscription";
+import MySubscription from "../../components/MySubscriptions";
+import NewSubscription from "../../components/NewSubscription";
 
 const Home = () => {
   return (

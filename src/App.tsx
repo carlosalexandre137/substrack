@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./components/GlobalStyles";
 import Main from "./components/Layouts/main";
-import Home from "./pages/home";
-import Register from "./pages/register";
+import Home from "./pages/Home/home";
+import Register from "./pages/Register/register";
 
 const App = () => {
   return (

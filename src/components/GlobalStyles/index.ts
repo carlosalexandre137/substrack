@@ -13,6 +13,11 @@ const GlobalStyles = createGlobalStyle`
 
   --font-default: 'Roboto', sans-serif;
   --font-title: 'Montserrat', sans-serif;
+
+	--theme-background-primary: #2563eb;
+	--theme-color-primary: #fff;
+	--theme-background-cyan: #0891b2;
+	--theme-color-cyan: #fff;
 }
 .icon-xl {
 	width: 16px;
