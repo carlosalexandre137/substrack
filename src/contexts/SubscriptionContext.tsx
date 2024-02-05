@@ -1,9 +1,10 @@
-import { createContext, useState } from "react";
-import { ISubscription } from "../shared/interfaces/ISubscription";
+import { createContext, useReducer } from "react";
+import { ISubscription, ISubscriptionAction } from "../shared/interfaces/ISubscription";
+import { SubscriptionReducer } from "../reducers/SubscriptionReducer";
 
 interface SubscriptionContextType {
   subscriptions: ISubscription[];
-  setSubscriptions: React.Dispatch<React.SetStateAction<ISubscription[]>>;
+  dispatch: React.Dispatch<ISubscriptionAction>;
 }
 
 export const SubscriptionContext = createContext<SubscriptionContextType | null>(null);
@@ -14,9 +15,10 @@ interface SubscriptionProviderProps {
 }
 
 export const SubscriptionProvider = ({ children }: SubscriptionProviderProps) => {
-  const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
+  const [subscriptions, dispatch] = useReducer(SubscriptionReducer, []);
+
   return (
-    <SubscriptionContext.Provider value={{ subscriptions, setSubscriptions }}>
+    <SubscriptionContext.Provider value={{ subscriptions, dispatch }}>
       {children}
     </SubscriptionContext.Provider>
   );

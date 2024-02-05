@@ -1,19 +1,19 @@
 import { useContext } from "react";
 import { SubscriptionContext } from "../contexts/SubscriptionContext";
 import { ISubscription } from "../shared/interfaces/ISubscription";
+import { SubscriptionActionType } from "../enum/Subscription";
 
 export const useSubscriptionContext = () => {
-  const { subscriptions, setSubscriptions } = useValidationContext();
+  const { dispatch } = useValidationContext();
 
   function addSubscription(subscription: ISubscription) {
-    setSubscriptions((subscriptions) => [...subscriptions, subscription]);
+    dispatch({
+      type: SubscriptionActionType.ADD_SUBSCRIPTION,
+      payload: subscription,
+    });
   }
 
-  function listAllSubscriptions() {
-    return subscriptions;
-  }
-
-  return { addSubscription, listAllSubscriptions };
+  return { addSubscription };
 };
 
 const useValidationContext = () => {
