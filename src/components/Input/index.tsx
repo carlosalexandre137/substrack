@@ -8,12 +8,15 @@ interface InputProps {
   set: (value: string) => void;
   type?: string;
   required?: boolean;
-  autoComplete?: boolean;
+  autoComplete?: string;
   placeholder?: string;
   className?: string;
   min?: number;
   max?: number;
   step?: string;
+  maxLength?: number;
+  minLength?: number;
+  pattern?: string;
 }
 
 const Input = ({
@@ -23,12 +26,8 @@ const Input = ({
   set,
   type = "text",
   required = false,
-  autoComplete = true,
-  placeholder,
   className,
-  min,
-  max,
-  step,
+  ...props
 }: InputProps) => {
   return (
     <div className={className}>
@@ -39,14 +38,10 @@ const Input = ({
         type={type}
         id={id}
         name={id}
-        placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => set(e.target.value)}
-        minLength={min}
-        maxLength={max}
         required={required}
         value={value}
-        autoComplete={autoComplete ? "on" : "off"}
-        step={step}
+        {...props}
       />
     </div>
   );

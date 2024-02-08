@@ -51,8 +51,8 @@ const Register = () => {
           className="input_name"
           value={name}
           set={(value) => setName(value)}
-          min={4}
-          max={155}
+          minLength={4}
+          maxLength={155}
           required
         />
         <Input
@@ -72,22 +72,21 @@ const Register = () => {
           className="input_plan"
           value={plan}
           set={(value) => setPlan(value)}
-          min={3}
-          max={155}
+          minLength={3}
+          maxLength={155}
           required
         />
         <Input
           type="number"
           label="Valor do plano"
           id="price"
-          placeholder="R$ 20,00"
-          className="input_price"
           value={price.toString()}
-          set={(value) => setPrice(parseFloat(value.replace(",", ".")))}
+          placeholder="R$ 20,00"
+          set={(value) => (value.length == 0 ? setPrice(0) : setPrice(parseFloat(value)))}
+          className="input_price"
           min={1}
-          max={10}
           required
-          autoComplete={false}
+          autoComplete="off"
           step="0.5"
         />
         <Input
@@ -115,7 +114,7 @@ const Register = () => {
           <Link to="/" theme="cyan">
             Voltar
           </Link>
-          <Button type="submit">Editar</Button>
+          <Button type="submit">Registrar</Button>
         </ContainerButtonsStyled>
       </FormStyled>
     </Container>
