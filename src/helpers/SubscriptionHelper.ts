@@ -1,3 +1,4 @@
+import { ModalityOptionsConfig } from "../config/Subscription";
 import { ISubscription } from "../shared/interfaces/ISubscription";
 import { FormatPrice } from "../utils/Price";
 
@@ -31,9 +32,9 @@ class SubscriptionHelper {
     return String(date.getDate());
   }
 
-  get modality(): string {    
+  get modality(): string {
     const modality = this.subscription.modality
-    return modality;
+    return ModalityOptionsConfig[modality].text;
   }
 }
 

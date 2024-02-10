@@ -7,7 +7,7 @@ export interface ISubscription {
   plan: string,
   price: number,
   date: Date,
-  modality: string,
+  modality: "quarterly" | "annually" | "monthly" | "weekly" | "daily",
 }
 
 export interface ISubscriptionAction {
