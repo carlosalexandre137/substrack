@@ -1,6 +1,7 @@
-import { SubscriptionActionType } from "../../reducers/SubscriptionReducer";
+import { SubscriptionActionType } from "../../enum/Subscription";
 
 export interface ISubscription {
+  id?: number,
   name: string,
   link: string,
   plan: string,

@@ -1,14 +1,27 @@
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
+import {
+  BodyStyled,
+  CardStyled,
+  FooterStyled,
+  HeaderStyled,
+  IconStyled,
+  LinkStyled,
+} from "./styled";
+import { ISubscription } from "../../shared/interfaces/ISubscription";
+import SubscriptionHelper from "../../helpers/SubscriptionHelper";
 
-import { BodyStyled, CardStyled, FooterStyled, HeaderStyled, IconStyled, LinkStyled } from "./styled";
+interface CardProps {
+  subscription: ISubscription;
+}
 
-const Card = () => {
+const Card = ({ subscription }: CardProps) => {
+  const sub = new SubscriptionHelper(subscription);
   return (
     <CardStyled>
       <HeaderStyled>
-        <h4>Netflix teste</h4>
+        <h4>{sub.name}</h4>
         <div>
-          <IconStyled to="/">
+          <IconStyled to={sub.link}>
             <GlobeAltIcon />
           </IconStyled>
         </div>
@@ -16,19 +29,19 @@ const Card = () => {
       <BodyStyled>
         <div>
           <p>Próxima renovação:</p>
-          <span>12 de dezembro 2023</span>
+          <span>{sub.date}</span>
         </div>
         <div>
           <p>Plano:</p>
-          <span>Plano Premium</span>
+          <span>Plano {sub.plan}</span>
         </div>
       </BodyStyled>
       <FooterStyled>
         <div className="footer-info">
-          <p className="price">R$ 20,00</p>
-          <p className="modality">Anualmente</p>
+          <p className="price">R$ {sub.price}</p>
+          <p className="modality">{sub.modality}</p>
         </div>
-        <LinkStyled to="visualizar">Ver detalhes</LinkStyled>
+        <LinkStyled to={`visualizar/${sub.id}`}>Ver detalhes</LinkStyled>
       </FooterStyled>
     </CardStyled>
   );

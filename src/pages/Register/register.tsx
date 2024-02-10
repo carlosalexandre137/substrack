@@ -8,6 +8,8 @@ import Title from "../../components/Title";
 import { ContainerButtonsStyled, FormStyled } from "./styled";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import { useState } from "react";
+import { formatValuesSubscription } from "../../utils/Subscription";
+import { convertDateFormInDateObject } from "../../utils/Date";
 
 const Register = () => {
   const [name, setName] = useState<string>("");
@@ -15,29 +17,29 @@ const Register = () => {
   const [plan, setPlan] = useState<string>("");
   const [price, setPrice] = useState<number>(1);
   const [date, setDate] = useState<string>("");
-  const [modality, setModality] = useState<string>("");
+  const [modality, setModality] = useState<string>("quarterly");
   const { addSubscription } = useSubscriptionContext();
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const dateForm = new Date(date.replace(/-/g, ","));
-
-    addSubscription({
-      name,
-      link,
-      plan,
-      price: price,
-      date: dateForm,
-      modality,
-    });
+    addSubscription(
+      formatValuesSubscription({
+        name,
+        link,
+        plan,
+        price,
+        date: convertDateFormInDateObject(date),
+        modality,
+      })
+    );
 
     setName("");
     setLink("");
     setPlan("");
     setPrice(1);
     setDate("");
-    setModality("");
+    setModality("quarterly");
   }
 
   return (
@@ -87,7 +89,6 @@ const Register = () => {
           min={1}
           required
           autoComplete="off"
-          step="0.5"
         />
         <Input
           type="date"
