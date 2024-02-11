@@ -19,7 +19,7 @@ const Card = ({ subscription }: CardProps) => {
   return (
     <CardStyled $renewal={sub.renewal}>
       <HeaderStyled>
-        <h4>{sub.name}</h4>
+        <h4 title={sub.name}>{sub.name}</h4>
         <div>
           <IconStyled to={sub.link}>
             <GlobeAltIcon />

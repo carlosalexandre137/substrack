@@ -18,9 +18,14 @@ export const HeaderStyled = styled.header`
   padding: 0.7rem;
 
   h4 {
+    width: 100%;
     font-size: 1.25rem;
     font-weight: 500;
     letter-spacing: 0.1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
 
     &::first-letter {
       text-transform: capitalize;
@@ -62,6 +67,10 @@ export const BodyStyled = styled.div`
     & > span {
       color: var(--color-pink-light);
       font-size: 0.9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 10px;
     }
   }
 
@@ -80,8 +89,10 @@ export const FooterStyled = styled.footer`
   .footer-info {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin: 30px 0 20px;
     padding: 0 0.7rem;
+    flex-grow: 1;
 
     .price {
       color: var(--color-green-light);
@@ -91,7 +102,6 @@ export const FooterStyled = styled.footer`
 `;
 
 export const LinkStyled = styled(LinkElement)`
-  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
