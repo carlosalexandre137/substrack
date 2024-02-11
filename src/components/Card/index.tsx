@@ -46,7 +46,7 @@ const Card = ({ subscription }: CardProps) => {
           <p className="price">R$ {sub.price}</p>
           <p className="modality">{sub.modality}</p>
         </div>
-        <LinkStyled to={`visualizar/${sub.id}`}>Ver detalhes</LinkStyled>
+        <LinkStyled to={`assinaturas/${sub.id}`}>Ver detalhes</LinkStyled>
       </FooterStyled>
     </CardStyled>
   );
