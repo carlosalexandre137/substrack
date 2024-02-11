@@ -1,9 +1,10 @@
 import { Link, LinkProps } from "react-router-dom";
 import styled from "styled-components";
 
-export const CardStyled = styled.div`
+export const CardStyled = styled.div<{ $renewal: boolean }>`
   border-radius: 10px;
-  background-color: var(--color-brown-dark);
+  background-color: ${(props) =>
+    props.$renewal ? "var(--color-brown-medium)" : "var(--color-brown-dark)"};
   display: flex;
   flex-direction: column;
 
@@ -62,6 +63,11 @@ export const BodyStyled = styled.div`
       color: var(--color-pink-light);
       font-size: 0.9rem;
     }
+  }
+
+  .renewalToday {
+    color: #dede27;
+    font-weight: 500;
   }
 `;
 

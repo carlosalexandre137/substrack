@@ -1,3 +1,4 @@
+import { ModalityOptionsConfig } from "../../config/Subscription";
 import Button from "../../components/Button";
 import Link from "../../components/Button/Link";
 import Container from "../../components/Container";
@@ -10,6 +11,7 @@ import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import { useState } from "react";
 import { formatValuesSubscription } from "../../utils/Subscription";
 import { convertDateFormInDateObject } from "../../utils/Date";
+import { IModalityOptionsConfig } from "../../shared/interfaces/IModality";
 
 const Register = () => {
   const [name, setName] = useState<string>("");
@@ -19,6 +21,9 @@ const Register = () => {
   const [date, setDate] = useState<string>("");
   const [modality, setModality] = useState<string>("quarterly");
   const { addSubscription } = useSubscriptionContext();
+  const listKeysModality = Object.keys(ModalityOptionsConfig) as [
+    keyof IModalityOptionsConfig
+  ];
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,7 +35,7 @@ const Register = () => {
         plan,
         price,
         date: convertDateFormInDateObject(date),
-        modality,
+        modality: modality as keyof IModalityOptionsConfig,
       })
     );
 
@@ -107,9 +112,15 @@ const Register = () => {
           set={(value) => setModality(value)}
           required
         >
-          <Option value="quarterly">Trimestralmente</Option>
-          <Option value="annually">Anualmente</Option>
-          <Option value="monthly">Mensalmente</Option>
+          {listKeysModality.map((key) => {
+            const subModality = ModalityOptionsConfig[key];
+
+            return (
+              <Option value={key} key={key}>
+                {`${subModality.text} - ${subModality.prefix}`}
+              </Option>
+            );
+          })}
         </Select>
         <ContainerButtonsStyled className="container_buttons">
           <Link to="/" theme="cyan">

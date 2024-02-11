@@ -17,7 +17,7 @@ interface CardProps {
 const Card = ({ subscription }: CardProps) => {
   const sub = new SubscriptionHelper(subscription);
   return (
-    <CardStyled>
+    <CardStyled $renewal={sub.renewal}>
       <HeaderStyled>
         <h4>{sub.name}</h4>
         <div>
@@ -27,6 +27,11 @@ const Card = ({ subscription }: CardProps) => {
         </div>
       </HeaderStyled>
       <BodyStyled>
+        {sub.renewal && (
+          <div>
+            <p className="renewalToday">Renovando hoje</p>
+          </div>
+        )}
         <div>
           <p>Próxima renovação:</p>
           <span>{sub.date}</span>

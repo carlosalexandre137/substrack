@@ -1,9 +1,16 @@
 import { ModalityOptionsConfig } from "../config/Subscription";
 import { ISubscription } from "../shared/interfaces/ISubscription";
 import { FormatPrice } from "../utils/Price";
+import SubscriptionDateHelper from "./SubscriptionDateHelper";
 
 class SubscriptionHelper {
+  private helper: SubscriptionDateHelper;
+
   constructor(private subscription: ISubscription) {
+    this.helper = new SubscriptionDateHelper(
+      this.subscription.date,
+      this.subscription.modality
+    );
   }
 
   get id(): string {
@@ -27,15 +34,17 @@ class SubscriptionHelper {
   }
 
   get date(): string {
-    const date = new Date(this.subscription.date);
-    
-    return String(date.getDate());
+    return this.helper.dateRenewal;
+  }
+
+  get renewal(): boolean {
+    return this.helper.checkIfTheRenewalIsToday;
   }
 
   get modality(): string {
-    const modality = this.subscription.modality
+    const modality = this.subscription.modality;
     return ModalityOptionsConfig[modality].text;
   }
 }
 
-export default SubscriptionHelper
+export default SubscriptionHelper;
