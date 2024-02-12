@@ -1,7 +1,7 @@
 import { ModalityOptionsConfig } from "../../config/Subscription";
 import Button from "../../components/Button";
 import Link from "../../components/Button/Link";
-import Container from "../../components/Container";
+import Container from "../../components/Containers";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 import Option from "../../components/Select/Option";

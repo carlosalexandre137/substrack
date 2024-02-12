@@ -1,4 +1,4 @@
-import Container from "../Container";
+import Container from "../Containers";
 import { GroupInfo, TextResult, TitleSubStyled } from "./styled";
 
 interface DetailsSubProps {

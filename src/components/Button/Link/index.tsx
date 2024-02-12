@@ -2,7 +2,7 @@ import { LinkProps } from "react-router-dom";
 import { LinkStyled } from "./styled";
 
 interface LinkElementProps extends LinkProps {
-  theme: string;
+  theme?: string;
 }
 
 const Link = ({ children, to, theme = "primary" }: LinkElementProps) => {

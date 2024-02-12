@@ -1,5 +1,5 @@
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import Container from "../Container";
+import Container from "../Containers";
 import Title from "../Title";
 import { ButtonStyled, IconStyled } from "./styled";
 

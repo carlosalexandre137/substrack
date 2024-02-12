@@ -33,3 +33,15 @@ export const SubscriptionCreate = (subscription: ISubscription): ISubscription =
   localStorage.setItem("subscriptions", JSON.stringify([subscription, ...subscriptions]));
   return subscription;
 };
+
+export const SubscriptionDeleteWithId = (id: string): boolean => {
+  const subscriptions = SubscriptionGetAll();
+
+  const newSubscriptions = subscriptions.filter(
+    (subscription) => subscription.id !== Number(id)
+  );
+
+  localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
+
+  return subscriptions.length != newSubscriptions.length;
+};

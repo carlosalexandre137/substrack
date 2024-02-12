@@ -21,6 +21,8 @@ const GlobalStyles = createGlobalStyle`
 	--theme-color-primary: #fff;
 	--theme-background-cyan: #0891b2;
 	--theme-color-cyan: #fff;
+	--theme-background-danger: #D73333;
+	--theme-color-danger: #fff;
 }
 .icon-xl {
 	width: 16px;

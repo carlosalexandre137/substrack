@@ -4,6 +4,7 @@ import { ISubscription } from "../shared/interfaces/ISubscription";
 import { SubscriptionActionType } from "../enum/Subscription";
 import {
   SubscriptionCreate,
+  SubscriptionDeleteWithId,
   SubscriptionFind,
   SubscriptionGetAll,
 } from "../services/SubscriptionService";
@@ -27,7 +28,23 @@ export const useSubscriptionContext = () => {
     return SubscriptionFind(id);
   }
 
-  return { addSubscription, getSubscriptions, getSubscriptionWithId };
+  function deleteSubscriptionWithId(id: string): boolean {
+    const validationDelete = SubscriptionDeleteWithId(id);
+    if (validationDelete) {
+      dispatch({
+        type: SubscriptionActionType.DELETE_SUBSCRIPTION,
+        payload: id,
+      });
+    }
+    return validationDelete;
+  }
+
+  return {
+    addSubscription,
+    getSubscriptions,
+    getSubscriptionWithId,
+    deleteSubscriptionWithId,
+  };
 };
 
 const useValidationContext = () => {

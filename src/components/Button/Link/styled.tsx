@@ -20,4 +20,5 @@ export const LinkStyled = styled(LinkElement)<{ $theme: string }>`
   cursor: pointer;
   font-family: var(--font-default);
   text-decoration: none;
+  text-align: center;
 `;

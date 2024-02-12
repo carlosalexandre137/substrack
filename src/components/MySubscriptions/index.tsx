@@ -1,5 +1,5 @@
 import Card from "../Card";
-import Container from "../Container";
+import Container from "../Containers";
 import Title from "../Title";
 import { ContainerCardsStyled } from "./styled";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";

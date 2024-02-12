@@ -3,6 +3,7 @@ import HeaderSub from "../../components/HeaderSub";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import SubscriptionHelper from "../../helpers/SubscriptionHelper";
 import DetailsSub from "../../components/DetailsSub";
+import ActionSub from "../../components/ActionsSub";
 
 const Subscription = () => {
   const params = useParams();
@@ -26,8 +27,7 @@ const Subscription = () => {
         ifRenewalToday={sub.renewal}
       />
       <DetailsSub date={sub.date} price={sub.price} />
-      {/* Conteúdo */}
-      {/* Sidebar */}
+      <ActionSub id={sub.id} />
       {/* Tabela */}
     </>
   );
