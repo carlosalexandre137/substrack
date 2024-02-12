@@ -7,19 +7,26 @@ import {
   TitleSubStyled,
 } from "./styled";
 
-const HeaderSub = () => {
+interface HeaderSubsProps {
+  title: string;
+  date: string;
+  modality: string;
+  ifRenewalToday: boolean;
+}
+
+const HeaderSub = ({ title, date, modality, ifRenewalToday }: HeaderSubsProps) => {
   return (
     <Container>
       <HeaderTopStyled>
-        <TitleSubStyled>Netflix</TitleSubStyled>
+        <TitleSubStyled>{title}</TitleSubStyled>
         <IconLinkSubStyled to="/">
           <GlobeAltIcon width={29} />
         </IconLinkSubStyled>
       </HeaderTopStyled>
       <ListInfoSubStyled>
-        <p>Desde 12 de outubro de 2023</p>
-        <p>Mensalmente</p>
-        <h2>Renovando hoje</h2>
+        <p>Desde {date}</p>
+        <p>{modality}</p>
+        {ifRenewalToday && <h2>Renovando hoje</h2>}
       </ListInfoSubStyled>
     </Container>
   );

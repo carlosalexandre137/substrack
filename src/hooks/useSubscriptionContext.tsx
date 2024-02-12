@@ -2,7 +2,11 @@ import { useContext } from "react";
 import { SubscriptionContext } from "../contexts/SubscriptionContext";
 import { ISubscription } from "../shared/interfaces/ISubscription";
 import { SubscriptionActionType } from "../enum/Subscription";
-import { SubscriptionCreate, SubscriptionGetAll } from "../services/SubscriptionService";
+import {
+  SubscriptionCreate,
+  SubscriptionFind,
+  SubscriptionGetAll,
+} from "../services/SubscriptionService";
 
 export const useSubscriptionContext = () => {
   const { dispatch } = useValidationContext();
@@ -19,7 +23,11 @@ export const useSubscriptionContext = () => {
     return SubscriptionGetAll();
   }
 
-  return { addSubscription, getSubscriptions };
+  function getSubscriptionWithId(id: number): ISubscription | false {
+    return SubscriptionFind(id);
+  }
+
+  return { addSubscription, getSubscriptions, getSubscriptionWithId };
 };
 
 const useValidationContext = () => {

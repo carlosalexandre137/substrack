@@ -11,6 +11,7 @@ export const TitleSubStyled = styled.h1`
   font-size: 29px;
   font-family: var(--font-title);
   font-weight: bold;
+  padding-right: 10px;
 `;
 
 const LinkItem = ({ to, className, children }: LinkProps) => (

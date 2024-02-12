@@ -37,6 +37,10 @@ class SubscriptionHelper {
     return this.helper.dateRenewal;
   }
 
+  get dateInit(): string {
+    return this.helper.dateInit;
+  }
+
   get renewal(): boolean {
     return this.helper.checkIfTheRenewalIsToday;
   }

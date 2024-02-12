@@ -2,7 +2,7 @@ import { ModalityOptionsConfig } from "../config/Subscription";
 import { formatToReadableDate } from "../utils/Date";
 
 export default class SubscriptionDateHelper {
-  private readonly dateInit: Date;
+  private readonly _dateInit: Date;
 
   private date: Date;
 
@@ -21,8 +21,8 @@ export default class SubscriptionDateHelper {
   };
 
   constructor(date: Date, private modality: keyof typeof ModalityOptionsConfig) {
-    this.dateInit = new Date(date);
-    this.date = new Date(this.dateInit);
+    this._dateInit = new Date(date);
+    this.date = new Date(this._dateInit);
     this.dateToday = new Date();
     this.dateToday.setHours(0, 0, 0, 0);
 
@@ -109,7 +109,7 @@ export default class SubscriptionDateHelper {
   }
 
   private verifyDay(): void {
-    if (this.date.getDate() < this.dateInit.getDate()) {
+    if (this.date.getDate() < this._dateInit.getDate()) {
       this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
     }
   }
@@ -117,7 +117,7 @@ export default class SubscriptionDateHelper {
   private checkRenewalIsToday(): boolean {
     return (
       this.date.getTime() === this.dateToday.getTime() &&
-      this.dateToday.getTime() !== this.dateInit.getTime()
+      this.dateToday.getTime() !== this._dateInit.getTime()
     );
   }
 
@@ -127,5 +127,9 @@ export default class SubscriptionDateHelper {
 
   get checkIfTheRenewalIsToday(): boolean {
     return this._checkIfTheRenewalIsToday;
+  }
+
+  get dateInit(): string {
+    return formatToReadableDate(this._dateInit);
   }
 }
