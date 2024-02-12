@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
   --color-brown-dark: #662549;
   --color-brown-medium: #66254c;
 	--color-red-dark: #f87171;
+	--color-violet-dark: #430d5f;
 
   --color-white-light: #FFFBF5;
   --color-pink-light: #E2CFCF;

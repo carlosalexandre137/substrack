@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const HeaderTopStyled = styled.div`
   display: flex;
   justify-content: space-between;
-  color: #430d5f;
+  color: var(--color-violet-dark);
 `;
 
 export const TitleSubStyled = styled.h1`
@@ -21,7 +21,7 @@ const LinkItem = ({ to, className, children }: LinkProps) => (
 );
 
 export const IconLinkSubStyled = styled(LinkItem)`
-  color: #430d5f;
+  color: var(--color-violet-dark);
 
   &:hover {
     color: var(--color-purple-light);

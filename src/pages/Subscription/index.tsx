@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import HeaderSub from "../../components/HeaderSub";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import SubscriptionHelper from "../../helpers/SubscriptionHelper";
+import DetailsSub from "../../components/DetailsSub";
 
 const Subscription = () => {
   const params = useParams();
@@ -24,7 +25,7 @@ const Subscription = () => {
         modality={sub.modality}
         ifRenewalToday={sub.renewal}
       />
-
+      <DetailsSub date={sub.date} price={sub.price} />
       {/* Conteúdo */}
       {/* Sidebar */}
       {/* Tabela */}
