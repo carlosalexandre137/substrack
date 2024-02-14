@@ -1,5 +1,5 @@
 import { ModalityOptionsConfig } from "../config/Subscription";
-import { formatToReadableDate } from "../utils/Date";
+import { formatToReadableDate, getShortDateString } from "../utils/Date";
 
 export default class SubscriptionDateHelper {
   private readonly _dateInit: Date;
@@ -12,21 +12,71 @@ export default class SubscriptionDateHelper {
 
   private _checkIfTheRenewalIsToday: boolean = false;
 
+  private setDate: (date: Date) => Date;
+
   private listMethodExecModality = {
-    quarterly: () => this.quarterly.bind(this)(),
-    annually: () => this.annually.bind(this)(),
-    monthly: () => this.monthly.bind(this)(),
-    weekly: () => this.weekly.bind(this)(),
-    daily: () => this.daily.bind(this)(),
+    quarterly: () => {
+      this.quarterly.bind(this)();
+      this.setDate = (date: Date) => {
+        date.setFullYear(date.getFullYear() + 3);
+        return date;
+      };
+    },
+    annually: () => {
+      this.annually.bind(this)();
+      this.setDate = (date: Date) => {
+        date.setFullYear(date.getFullYear() + 1);
+        return date;
+      };
+    },
+    monthly: () => {
+      this.monthly.bind(this)();
+      this.setDate = (date: Date) => {
+        date.setMonth(date.getMonth() + 1);
+        return date;
+      };
+    },
+    weekly: () => {
+      this.weekly.bind(this)();
+      this.setDate = (date: Date) => {
+        date.setDate(date.getDate() + 7);
+        return date;
+      };
+    },
+    daily: () => {
+      this.daily.bind(this)();
+      this.setDate = (date: Date) => {
+        date.setDate(date.getDate() + 1);
+        return date;
+      };
+    },
   };
 
-  constructor(date: Date, private modality: keyof typeof ModalityOptionsConfig) {
+  constructor(
+    date: Date,
+    private modality: keyof typeof ModalityOptionsConfig
+  ) {
     this._dateInit = new Date(date);
     this.date = new Date(this._dateInit);
     this.dateToday = new Date();
     this.dateToday.setHours(0, 0, 0, 0);
+    this.setDate = () => new Date();
 
     this.createDateRenewal();
+  }
+
+  public history() {
+    var dateInit = new Date(this._dateInit);
+    let listHistory = [];
+
+    while (this.date.getTime() > dateInit.getTime()) {
+      listHistory.push(getShortDateString(dateInit));
+      dateInit = this.setDate(dateInit);
+    }
+
+    listHistory.reverse();
+
+    return listHistory;
   }
 
   private createDateRenewal(): void {
@@ -67,7 +117,11 @@ export default class SubscriptionDateHelper {
   private monthly(): void {
     const step = 1;
 
-    const month = this.formula(this.dateToday.getMonth(), this.date.getMonth(), step);
+    const month = this.formula(
+      this.dateToday.getMonth(),
+      this.date.getMonth(),
+      step
+    );
 
     this.date.setFullYear(this.dateToday.getFullYear(), month - step);
 
@@ -83,14 +137,24 @@ export default class SubscriptionDateHelper {
 
     step = step <= 0 ? step + 7 : step;
 
-    this.date.setFullYear(this.dateToday.getFullYear(), this.dateToday.getMonth());
+    this.date.setFullYear(
+      this.dateToday.getFullYear(),
+      this.dateToday.getMonth()
+    );
     this.date.setDate(this.dateToday.getDate() + step);
   }
 
   private daily(): void {
     const step = 1;
-    const day = this.formula(this.dateToday.getDate(), this.date.getDate(), step);
-    this.date.setFullYear(this.dateToday.getFullYear());
+    const day = this.formula(
+      this.dateToday.getDate(),
+      this.date.getDate(),
+      step
+    );
+    this.date.setFullYear(
+      this.dateToday.getFullYear(),
+      this.dateToday.getMonth()
+    );
     this.date.setDate(day);
     this._checkIfTheRenewalIsToday = true;
   }

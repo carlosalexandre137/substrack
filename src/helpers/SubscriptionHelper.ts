@@ -13,6 +13,12 @@ class SubscriptionHelper {
     );
   }
 
+  public history(): string[] {
+    const history = this.helper.history();
+
+    return history;
+  }
+
   get id(): string {
     return String(this.subscription.id);
   }

@@ -4,6 +4,7 @@ import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import SubscriptionHelper from "../../helpers/SubscriptionHelper";
 import DetailsSub from "../../components/DetailsSub";
 import ActionSub from "../../components/ActionsSub";
+import TableSub from "../../components/TableSub";
 
 const Subscription = () => {
   const params = useParams();
@@ -28,7 +29,7 @@ const Subscription = () => {
       />
       <DetailsSub date={sub.date} price={sub.price} />
       <ActionSub id={sub.id} />
-      {/* Tabela */}
+      <TableSub history={sub.history()} price={sub.price} />
     </>
   );
 };
