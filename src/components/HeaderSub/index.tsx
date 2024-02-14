@@ -1,5 +1,4 @@
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
-import Container from "../Containers";
 import {
   HeaderTopStyled,
   IconLinkSubStyled,
@@ -14,9 +13,14 @@ interface HeaderSubsProps {
   ifRenewalToday: boolean;
 }
 
-const HeaderSub = ({ title, date, modality, ifRenewalToday }: HeaderSubsProps) => {
+const HeaderSub = ({
+  title,
+  date,
+  modality,
+  ifRenewalToday,
+}: HeaderSubsProps) => {
   return (
-    <Container>
+    <section className="header-subscription">
       <HeaderTopStyled>
         <TitleSubStyled>{title}</TitleSubStyled>
         <IconLinkSubStyled to="/">
@@ -28,7 +32,7 @@ const HeaderSub = ({ title, date, modality, ifRenewalToday }: HeaderSubsProps) =
         <p>{modality}</p>
         {ifRenewalToday && <h2>Renovando hoje</h2>}
       </ListInfoSubStyled>
-    </Container>
+    </section>
   );
 };
 

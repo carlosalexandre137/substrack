@@ -1,4 +1,3 @@
-import Container from "../Containers";
 import { GroupInfo, TextResult, TitleSubStyled } from "./styled";
 
 interface DetailsSubProps {
@@ -8,7 +7,7 @@ interface DetailsSubProps {
 
 const DetailsSub = ({ date, price }: DetailsSubProps) => {
   return (
-    <Container>
+    <section className="details-subscription">
       <GroupInfo>
         <TitleSubStyled>Próxima renovação</TitleSubStyled>
         <TextResult>{date}</TextResult>
@@ -17,7 +16,7 @@ const DetailsSub = ({ date, price }: DetailsSubProps) => {
         <TitleSubStyled>Valor da renovação</TitleSubStyled>
         <TextResult>R$ {price}</TextResult>
       </GroupInfo>
-    </Container>
+    </section>
   );
 };
 

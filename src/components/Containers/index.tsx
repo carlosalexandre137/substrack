@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ContainerBase = styled.section`
+export const ContainerBase = styled.section`
   max-width: 1440px;
   width: 100%;
   margin: auto;

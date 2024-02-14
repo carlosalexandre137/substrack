@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Container from "../Containers";
 import { TableStyled } from "./styled";
 import Button from "../Button";
 import { FormatPrice } from "../../utils/Price";
@@ -22,7 +21,7 @@ const TableSub = ({ history, price }: TableSubProps) => {
   }
 
   return (
-    <Container>
+    <section className="table-subscription">
       <TableStyled>
         <thead>
           <tr>
@@ -51,7 +50,7 @@ const TableSub = ({ history, price }: TableSubProps) => {
           </tr>
         </tfoot>
       </TableStyled>
-    </Container>
+    </section>
   );
 };
 

@@ -5,6 +5,7 @@ import SubscriptionHelper from "../../helpers/SubscriptionHelper";
 import DetailsSub from "../../components/DetailsSub";
 import ActionSub from "../../components/ActionsSub";
 import TableSub from "../../components/TableSub";
+import { ContainerSubscriptionDetailsStyled } from "./styled";
 
 const Subscription = () => {
   const params = useParams();
@@ -20,7 +21,7 @@ const Subscription = () => {
   const sub = new SubscriptionHelper(subscription);
 
   return (
-    <>
+    <ContainerSubscriptionDetailsStyled>
       <HeaderSub
         title={sub.name}
         date={sub.dateInit}
@@ -30,7 +31,7 @@ const Subscription = () => {
       <DetailsSub date={sub.date} price={sub.price} />
       <ActionSub id={sub.id} />
       <TableSub history={sub.history()} price={sub.price} />
-    </>
+    </ContainerSubscriptionDetailsStyled>
   );
 };
 
