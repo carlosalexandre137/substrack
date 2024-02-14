@@ -11,6 +11,7 @@ interface HeaderSubsProps {
   date: string;
   modality: string;
   ifRenewalToday: boolean;
+  link: string;
 }
 
 const HeaderSub = ({
@@ -18,14 +19,19 @@ const HeaderSub = ({
   date,
   modality,
   ifRenewalToday,
+  link,
 }: HeaderSubsProps) => {
+  console.log(link);
+
   return (
     <section className="header-subscription">
       <HeaderTopStyled>
         <TitleSubStyled>{title}</TitleSubStyled>
-        <IconLinkSubStyled to="/">
-          <GlobeAltIcon width={29} />
-        </IconLinkSubStyled>
+        {link && (
+          <IconLinkSubStyled to={link}>
+            <GlobeAltIcon width={29} />
+          </IconLinkSubStyled>
+        )}
       </HeaderTopStyled>
       <ListInfoSubStyled>
         <p>Desde {date}</p>

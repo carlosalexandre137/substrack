@@ -26,6 +26,7 @@ const Subscription = () => {
         title={sub.name}
         date={sub.dateInit}
         modality={sub.modality}
+        link={sub.link}
         ifRenewalToday={sub.renewal}
       />
       <DetailsSub date={sub.date} price={sub.price} />

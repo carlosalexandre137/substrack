@@ -12,7 +12,7 @@ const TableSub = ({ history, price }: TableSubProps) => {
   const [page, setPage] = useState(1);
   const limit = page * 20;
   const total = FormatPrice(
-    Number(price.replace(",", "")) * Number(history.length)
+    Number(price.replace(",", ".")) * Number(history.length)
   );
 
   const records = history.slice(0, limit);
