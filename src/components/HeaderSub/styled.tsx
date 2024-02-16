@@ -15,8 +15,8 @@ export const TitleSubStyled = styled.h1`
   word-break: break-all;
 `;
 
-const LinkItem = ({ to, className, children }: LinkProps) => (
-  <Link to={to} className={className}>
+const LinkItem = ({ to, className, children, target }: LinkProps) => (
+  <Link to={to} className={className} target={target}>
     {children}
   </Link>
 );

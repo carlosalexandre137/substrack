@@ -4,6 +4,7 @@ import { ISubscription } from "../../shared/interfaces/ISubscription";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import SubscriptionHelper from "../../helpers/SubscriptionHelper";
 import { getShortDateStringEnglish } from "../../utils/Date";
+import { formatValuesSubscription } from "../../utils/Subscription";
 
 const EditSubscription = () => {
   const params = useParams();
@@ -19,7 +20,7 @@ const EditSubscription = () => {
   const { updateSubscriptionWithId } = useSubscriptionContext();
 
   function saveEditedSubscription(subscription: ISubscription) {
-    updateSubscriptionWithId(id, subscription);
+    updateSubscriptionWithId(id, formatValuesSubscription(subscription));
   }
 
   return (

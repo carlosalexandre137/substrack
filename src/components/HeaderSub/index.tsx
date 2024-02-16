@@ -26,7 +26,7 @@ const HeaderSub = ({
       <HeaderTopStyled>
         <TitleSubStyled>{title}</TitleSubStyled>
         {link && (
-          <IconLinkSubStyled to={link}>
+          <IconLinkSubStyled to={link} target="blank">
             <GlobeAltIcon width={29} />
           </IconLinkSubStyled>
         )}
