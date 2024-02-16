@@ -9,8 +9,9 @@ export const SubscriptionGetAll = (): ISubscription[] => {
 export const SubscriptionFind = (id: number): ISubscription | false => {
   const subscriptions = SubscriptionGetAll();
   return (
-    subscriptions.find((subscription: ISubscription) => Number(subscription.id) === id) ??
-    false
+    subscriptions.find(
+      (subscription: ISubscription) => Number(subscription.id) === id
+    ) ?? false
   );
 };
 
@@ -26,11 +27,16 @@ const SubscriptionCreateId = () => {
   return id;
 };
 
-export const SubscriptionCreate = (subscription: ISubscription): ISubscription => {
+export const SubscriptionCreate = (
+  subscription: ISubscription
+): ISubscription => {
   subscription.id = SubscriptionCreateId();
 
   const subscriptions = SubscriptionGetAll();
-  localStorage.setItem("subscriptions", JSON.stringify([subscription, ...subscriptions]));
+  localStorage.setItem(
+    "subscriptions",
+    JSON.stringify([subscription, ...subscriptions])
+  );
   return subscription;
 };
 
@@ -44,4 +50,19 @@ export const SubscriptionDeleteWithId = (id: string): boolean => {
   localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
 
   return subscriptions.length != newSubscriptions.length;
+};
+
+export const SubscriptionUpdateWithId = (
+  id: string | number,
+  subscription: ISubscription
+): ISubscription => {
+  const subscriptions = SubscriptionGetAll();
+  subscription.id = Number(id);
+
+  const newSubscriptions = subscriptions.map((sub) =>
+    sub.id === id ? subscription : sub
+  );
+
+  localStorage.setItem("subscriptions", JSON.stringify(newSubscriptions));
+  return subscription;
 };

@@ -5,8 +5,7 @@ import { ContainerCardsStyled } from "./styled";
 import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 
 const MySubscription = () => {
-  const { getSubscriptions } = useSubscriptionContext();
-  const subscriptions = getSubscriptions();
+  const { subscriptions } = useSubscriptionContext();
 
   return (
     <Container>

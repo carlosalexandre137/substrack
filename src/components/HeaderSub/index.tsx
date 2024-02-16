@@ -21,8 +21,6 @@ const HeaderSub = ({
   ifRenewalToday,
   link,
 }: HeaderSubsProps) => {
-  console.log(link);
-
   return (
     <section className="header-subscription">
       <HeaderTopStyled>

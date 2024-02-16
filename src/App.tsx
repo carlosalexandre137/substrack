@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Subscription from "./pages/Subscription";
 import { SubscriptionProvider } from "./contexts/SubscriptionContext";
+import EditSubscription from "./pages/EditSubscription";
 
 const App = () => {
   return (
@@ -16,6 +17,10 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="assinaturas/registrar" element={<Register />} />
             <Route path="assinaturas/:id" element={<Subscription />} />
+            <Route
+              path="assinaturas/:id/editar"
+              element={<EditSubscription />}
+            />
           </Route>
         </Routes>
       </SubscriptionProvider>

@@ -13,5 +13,5 @@ export interface ISubscription {
 
 export interface ISubscriptionAction {
   type: SubscriptionActionType;
-  payload: ISubscription | string;
+  payload: ISubscription;
 }

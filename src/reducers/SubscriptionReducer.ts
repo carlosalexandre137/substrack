@@ -1,5 +1,9 @@
+// SubscriptionReducer.ts
 import { SubscriptionActionType } from "../enum/Subscription";
-import { ISubscription, ISubscriptionAction } from "../shared/interfaces/ISubscription";
+import {
+  ISubscription,
+  ISubscriptionAction,
+} from "../shared/interfaces/ISubscription";
 
 export const SubscriptionReducer = (
   state: ISubscription[],
@@ -7,12 +11,18 @@ export const SubscriptionReducer = (
 ) => {
   switch (action.type) {
     case SubscriptionActionType.ADD_SUBSCRIPTION: {
-      const subs = action.payload;
-      return [subs, ...state];
+      const subscription = action.payload;
+      return [subscription, ...state];
     }
     case SubscriptionActionType.DELETE_SUBSCRIPTION: {
-      const id = action.payload;
-      return state.filter((sub) => sub.id !== Number(id));
+      const subscription = action.payload;
+      return state.filter((sub) => sub.id !== subscription.id);
+    }
+    case SubscriptionActionType.UPDATE_SUBSCRIPTION: {
+      const subscription = action.payload;
+      return state.map((sub) =>
+        subscription.id === sub.id ? subscription : sub
+      );
     }
     default:
       return state;

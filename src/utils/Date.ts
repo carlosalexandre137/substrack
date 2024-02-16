@@ -14,6 +14,14 @@ export const getShortDateString = (date: Date): string => {
   ].join("/");
 };
 
+export const getShortDateStringEnglish = (date: Date): string => {
+  return [
+    date.getFullYear(),
+    padTo2Digits(date.getMonth() + 1),
+    padTo2Digits(date.getDate()),
+  ].join("-");
+};
+
 export const formatToReadableDate = (date: Date): string => {
   const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
   const month = monthToString(date.getMonth());
