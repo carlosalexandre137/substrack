@@ -34,6 +34,7 @@ const EditSubscription = () => {
       valuePrice={subscription.price}
       valueDate={getShortDateStringEnglish(new Date(subscription.date))}
       valueModality={subscription.modality}
+      message="Assinatura editada com sucesso"
     />
   );
 };

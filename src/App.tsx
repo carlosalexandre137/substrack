@@ -6,10 +6,12 @@ import Register from "./pages/Register";
 import Subscription from "./pages/Subscription";
 import { SubscriptionProvider } from "./contexts/SubscriptionContext";
 import EditSubscription from "./pages/EditSubscription";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <GlobalStyles />
       <SubscriptionProvider>
         <Routes>

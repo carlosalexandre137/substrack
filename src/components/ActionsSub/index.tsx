@@ -3,6 +3,7 @@ import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
 import Button from "../Button";
 import Link from "../Button/Link";
 import { ContainerButtonsActions } from "./styled";
+import { toast } from "react-toastify";
 
 interface ActionSubProps {
   id: string;
@@ -15,6 +16,10 @@ export const ActionSub = ({ id }: ActionSubProps) => {
   function deleteSubscription() {
     deleteSubscriptionWithId(id);
     navigate("/");
+    toast.success("Assinatura removida com sucesso", {
+      toastId: 1,
+      autoClose: 3000,
+    });
   }
 
   return (

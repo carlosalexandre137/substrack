@@ -16,6 +16,7 @@ const Register = () => {
       save={saveRegisterSubscription}
       title="Registrar nova assinatura"
       clear={true}
+      message="Nova assinatura registrada com sucesso"
     />
   );
 };

@@ -20,11 +20,13 @@ const Card = ({ subscription }: CardProps) => {
     <CardStyled $renewal={sub.renewal}>
       <HeaderStyled>
         <h4 title={sub.name}>{sub.name}</h4>
-        <div>
-          <IconStyled to={sub.link}>
-            <GlobeAltIcon />
-          </IconStyled>
-        </div>
+        {sub.link && (
+          <div>
+            <IconStyled to={sub.link} target="blank">
+              <GlobeAltIcon />
+            </IconStyled>
+          </div>
+        )}
       </HeaderStyled>
       <BodyStyled>
         {sub.renewal && (

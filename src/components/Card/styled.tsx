@@ -33,8 +33,8 @@ export const HeaderStyled = styled.header`
   }
 `;
 
-const LinkElement = ({ children, className, to }: LinkProps) => (
-  <Link to={to} className={className}>
+const LinkElement = ({ children, className, to, target }: LinkProps) => (
+  <Link to={to} className={className} target={target}>
     {children}
   </Link>
 );

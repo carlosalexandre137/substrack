@@ -12,11 +12,13 @@ import { convertDateFormInDateObject } from "../../utils/Date";
 import { IModalityOptionsConfig } from "../../shared/interfaces/IModality";
 import { ISubscription } from "../../shared/interfaces/ISubscription";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface FormProps {
   save: (subscription: ISubscription) => void;
   title: string | JSX.Element;
   button: string;
+  message: string;
   valueName?: string;
   valueLink?: string;
   valuePrice?: number;
@@ -30,6 +32,7 @@ const Form = ({
   save,
   title,
   button,
+  message,
   valueName = "",
   valueLink = "",
   valuePlan = "",
@@ -67,6 +70,8 @@ const Form = ({
         modality: modality as keyof IModalityOptionsConfig,
       })
     );
+
+    toast.success(message, { toastId: 1, autoClose: 3000 });
 
     setName(clearInput<string>(name, valueName));
     setLink(clearInput<string>(link, valueLink));
