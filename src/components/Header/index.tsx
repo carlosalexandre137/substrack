@@ -1,5 +1,5 @@
-import Logo from "../Logo";
-import Menu from "./Menu";
+import Logo from "@components/Logo";
+import Menu from "@components/Header/Menu";
 import { ContainerStyled, HeaderStyled } from "./styled";
 
 const Header = () => {

@@ -1,6 +1,13 @@
-import { ISubscription } from "../shared/interfaces/ISubscription";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
 
-export const formatValuesSubscription = ({ name, link, plan, price, date, modality }: ISubscription): ISubscription => {
+export const formatValuesSubscription = ({
+  name,
+  link,
+  plan,
+  price,
+  date,
+  modality,
+}: ISubscription): ISubscription => {
   return {
     name: name.trim(),
     link: link.trim(),

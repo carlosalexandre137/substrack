@@ -2,9 +2,9 @@ import { Reducer, createContext, useReducer } from "react";
 import {
   ISubscription,
   ISubscriptionAction,
-} from "../shared/interfaces/ISubscription";
-import { SubscriptionReducer } from "../reducers/SubscriptionReducer";
-import { SubscriptionGetAll } from "../services/SubscriptionService";
+} from "@/shared/interfaces/ISubscription";
+import { SubscriptionReducer } from "@/reducers/SubscriptionReducer";
+import { SubscriptionGetAll } from "@/services/SubscriptionService";
 
 interface SubscriptionContextType {
   subscriptions: ISubscription[];

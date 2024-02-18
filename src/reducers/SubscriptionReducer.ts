@@ -1,9 +1,9 @@
 // SubscriptionReducer.ts
-import { SubscriptionActionType } from "../enum/Subscription";
+import { SubscriptionActionType } from "@/enum/Subscription";
 import {
   ISubscription,
   ISubscriptionAction,
-} from "../shared/interfaces/ISubscription";
+} from "@/shared/interfaces/ISubscription";
 
 export const SubscriptionReducer = (
   state: ISubscription[],

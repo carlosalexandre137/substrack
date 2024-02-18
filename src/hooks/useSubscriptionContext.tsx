@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { SubscriptionContext } from "../contexts/SubscriptionContext";
-import { ISubscription } from "../shared/interfaces/ISubscription";
-import { SubscriptionActionType } from "../enum/Subscription";
+import { SubscriptionContext } from "@/contexts/SubscriptionContext";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
+import { SubscriptionActionType } from "@/enum/Subscription";
 import {
   SubscriptionCreate,
   SubscriptionDeleteWithId,
   SubscriptionUpdateWithId,
   SubscriptionFind,
   SubscriptionGetAll,
-} from "../services/SubscriptionService";
+} from "@/services/SubscriptionService";
 
 export const useSubscriptionContext = () => {
   const { subscriptions, dispatch } = useValidationContext();

@@ -1,6 +1,6 @@
-import { ModalityOptionsConfig } from "../config/Subscription";
-import { ISubscription } from "../shared/interfaces/ISubscription";
-import { FormatPrice } from "../utils/Price";
+import { ModalityOptionsConfig } from "@/config/Subscription";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
+import { FormatPrice } from "@/utils/Price";
 import SubscriptionDateHelper from "./SubscriptionDateHelper";
 
 class SubscriptionHelper {

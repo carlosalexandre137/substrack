@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
-import Button from "../Button";
-import Link from "../Button/Link";
+import { useSubscriptionContext } from "@/hooks/useSubscriptionContext";
+import Button from "@/components/Button";
+import Link from "@/components/Button/Link";
 import { ContainerButtonsActions } from "./styled";
 import { toast } from "react-toastify";
 

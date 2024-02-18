@@ -1,4 +1,4 @@
-import { LabelStyled } from "../Label";
+import { LabelStyled } from "@components/Label";
 import { InputStyled } from "./styled";
 
 interface InputProps {
@@ -38,7 +38,9 @@ const Input = ({
         type={type}
         id={id}
         name={id}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => set(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          set(e.target.value)
+        }
         required={required}
         value={value}
         {...props}

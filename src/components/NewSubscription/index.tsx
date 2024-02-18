@@ -1,6 +1,6 @@
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import Container from "../Containers";
-import Title from "../Title";
+import Container from "@components/Containers";
+import Title from "@components/Title";
 import { ButtonStyled, IconStyled } from "./styled";
 
 const NewSubscription = () => {

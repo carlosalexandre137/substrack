@@ -1,4 +1,4 @@
-import { IModalityOptionsConfig } from "../shared/interfaces/IModality";
+import { IModalityOptionsConfig } from "@/shared/interfaces/IModality";
 
 export const ModalityOptionsConfig: IModalityOptionsConfig = {
   quarterly: {

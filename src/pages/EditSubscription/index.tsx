@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import Form from "../../components/Form";
-import { ISubscription } from "../../shared/interfaces/ISubscription";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
-import SubscriptionHelper from "../../helpers/SubscriptionHelper";
-import { getShortDateStringEnglish } from "../../utils/Date";
-import { formatValuesSubscription } from "../../utils/Subscription";
+import Form from "@components/Form";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
+import { useSubscriptionContext } from "@/hooks/useSubscriptionContext";
+import SubscriptionHelper from "@/helpers/SubscriptionHelper";
+import { getShortDateStringEnglish } from "@/utils/Date";
+import { formatValuesSubscription } from "@/utils/Subscription";
 
 const EditSubscription = () => {
   const params = useParams();

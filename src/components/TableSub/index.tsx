@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TableStyled } from "./styled";
-import Button from "../Button";
-import { FormatPrice } from "../../utils/Price";
+import Button from "@components/Button";
+import { FormatPrice } from "@/utils/Price";
 
 interface TableSubProps {
   history: string[];

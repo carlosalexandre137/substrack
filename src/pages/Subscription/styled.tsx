@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ContainerBase } from "../../components/Containers";
+import { ContainerBase } from "@components/Containers";
 
 export const ContainerSubscriptionDetailsStyled = styled(ContainerBase).attrs({
   as: "main",

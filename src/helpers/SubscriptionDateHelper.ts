@@ -1,5 +1,5 @@
-import { ModalityOptionsConfig } from "../config/Subscription";
-import { formatToReadableDate, getShortDateString } from "../utils/Date";
+import { ModalityOptionsConfig } from "@/config/Subscription";
+import { formatToReadableDate, getShortDateString } from "@/utils/Date";
 
 export default class SubscriptionDateHelper {
   private readonly _dateInit: Date;

@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import HeaderSub from "../../components/HeaderSub";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
-import SubscriptionHelper from "../../helpers/SubscriptionHelper";
-import DetailsSub from "../../components/DetailsSub";
-import ActionSub from "../../components/ActionsSub";
-import TableSub from "../../components/TableSub";
+import HeaderSub from "@components/HeaderSub";
+import { useSubscriptionContext } from "@/hooks/useSubscriptionContext";
+import SubscriptionHelper from "@/helpers/SubscriptionHelper";
+import DetailsSub from "@components/DetailsSub";
+import ActionSub from "@components/ActionsSub";
+import TableSub from "@components/TableSub";
 import { ContainerSubscriptionDetailsStyled } from "./styled";
-import NotFound from "@/components/NotFound";
+import NotFound from "@components/NotFound";
 
 const Subscription = () => {
   const params = useParams();

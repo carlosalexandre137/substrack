@@ -1,4 +1,4 @@
-import { ISubscription } from "../shared/interfaces/ISubscription";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
 
 export const SubscriptionGetAll = (): ISubscription[] => {
   const subscriptions = localStorage.getItem("subscriptions") ?? "[]";

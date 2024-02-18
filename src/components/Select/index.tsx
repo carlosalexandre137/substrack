@@ -1,5 +1,5 @@
 import { SelectStyled } from "./styled";
-import { LabelStyled } from "../Label";
+import { LabelStyled } from "@components/Label";
 import { ReactElement } from "react";
 import { OptionProps } from "./Option";
 
@@ -29,7 +29,9 @@ const Select = ({
       </LabelStyled>
       <SelectStyled
         id={id}
-        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => set(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+          set(e.target.value)
+        }
         required={required}
         value={value}
       >

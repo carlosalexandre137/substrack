@@ -7,8 +7,8 @@ import {
   IconStyled,
   LinkStyled,
 } from "./styled";
-import { ISubscription } from "../../shared/interfaces/ISubscription";
-import SubscriptionHelper from "../../helpers/SubscriptionHelper";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
+import SubscriptionHelper from "@/helpers/SubscriptionHelper";
 
 interface CardProps {
   subscription: ISubscription;

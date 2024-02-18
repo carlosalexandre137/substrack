@@ -1,8 +1,8 @@
-import Card from "../Card";
-import Container from "../Containers";
-import Title from "../Title";
+import Card from "@components/Card";
+import Container from "@components/Containers";
+import Title from "@components/Title";
 import { ContainerCardsStyled } from "./styled";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
+import { useSubscriptionContext } from "@/hooks/useSubscriptionContext";
 
 const MySubscription = () => {
   const { subscriptions } = useSubscriptionContext();

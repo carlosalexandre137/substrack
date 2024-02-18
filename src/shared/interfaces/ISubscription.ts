@@ -1,4 +1,4 @@
-import { SubscriptionActionType } from "../../enum/Subscription";
+import { SubscriptionActionType } from "@/enum/Subscription";
 import { IModalityOptionsConfig } from "./IModality";
 
 export interface ISubscription {

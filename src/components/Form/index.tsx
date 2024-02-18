@@ -1,16 +1,16 @@
-import { ModalityOptionsConfig } from "../../config/Subscription";
-import Button from "../../components/Button";
-import Container from "../../components/Containers";
-import Input from "../../components/Input";
-import Select from "../../components/Select";
-import Option from "../../components/Select/Option";
-import Title from "../../components/Title";
+import { ModalityOptionsConfig } from "@/config/Subscription";
+import Button from "@components/Button";
+import Container from "@/components/Containers";
+import Input from "@/components/Input";
+import Select from "@/components/Select";
+import Option from "@/components/Select/Option";
+import Title from "@/components/Title";
 import { ContainerButtonsStyled, FormStyled } from "./styled";
 import { useState } from "react";
-import { formatValuesSubscription } from "../../utils/Subscription";
-import { convertDateFormInDateObject } from "../../utils/Date";
-import { IModalityOptionsConfig } from "../../shared/interfaces/IModality";
-import { ISubscription } from "../../shared/interfaces/ISubscription";
+import { formatValuesSubscription } from "@/utils/Subscription";
+import { convertDateFormInDateObject } from "@/utils/Date";
+import { IModalityOptionsConfig } from "@/shared/interfaces/IModality";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

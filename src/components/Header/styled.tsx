@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from "../Containers";
+import Container from "@components/Containers";
 
 export const HeaderStyled = styled.header`
   background: var(--color-purple-dark);

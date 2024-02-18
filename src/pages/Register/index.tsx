@@ -1,7 +1,7 @@
-import Form from "../../components/Form";
-import { useSubscriptionContext } from "../../hooks/useSubscriptionContext";
-import { ISubscription } from "../../shared/interfaces/ISubscription";
-import { formatValuesSubscription } from "../../utils/Subscription";
+import Form from "@components/Form";
+import { useSubscriptionContext } from "@/hooks/useSubscriptionContext";
+import { ISubscription } from "@/shared/interfaces/ISubscription";
+import { formatValuesSubscription } from "@/utils/Subscription";
 
 const Register = () => {
   const { addSubscription } = useSubscriptionContext();
