@@ -8,26 +8,29 @@ import { SubscriptionProvider } from "./contexts/SubscriptionContext";
 import EditSubscription from "./pages/EditSubscription";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./components/NotFound";
+import { HelmetProvider } from "react-helmet-async";
 
 const App = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <GlobalStyles />
-      <SubscriptionProvider>
-        <Routes>
-          <Route path="/" element={<Main />}>
-            <Route index element={<Home />} />
-            <Route path="assinaturas/registrar" element={<Register />} />
-            <Route path="assinaturas/:id" element={<Subscription />} />
-            <Route
-              path="assinaturas/:id/editar"
-              element={<EditSubscription />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </SubscriptionProvider>
+      <HelmetProvider>
+        <SubscriptionProvider>
+          <Routes>
+            <Route path="/" element={<Main />}>
+              <Route index element={<Home />} />
+              <Route path="assinaturas/registrar" element={<Register />} />
+              <Route path="assinaturas/:id" element={<Subscription />} />
+              <Route
+                path="assinaturas/:id/editar"
+                element={<EditSubscription />}
+              />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </SubscriptionProvider>
+      </HelmetProvider>
     </BrowserRouter>
   );
 };

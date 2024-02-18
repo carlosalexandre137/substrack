@@ -7,6 +7,7 @@ import ActionSub from "@components/ActionsSub";
 import TableSub from "@components/TableSub";
 import { ContainerSubscriptionDetailsStyled } from "./styled";
 import NotFound from "@components/NotFound";
+import BasePage from "@/components/BasePage";
 
 const Subscription = () => {
   const params = useParams();
@@ -24,18 +25,24 @@ const Subscription = () => {
   const sub = new SubscriptionHelper(subscription);
 
   return (
-    <ContainerSubscriptionDetailsStyled>
-      <HeaderSub
-        title={sub.name}
-        date={sub.dateInit}
-        modality={sub.modality}
-        link={sub.link}
-        ifRenewalToday={sub.renewal}
+    <>
+      <BasePage
+        title="Detalhes da assinatura"
+        description="Visualize todos os detalhes da sua assinatura em um único local. Tenha acesso rápido a informações importantes sobre sua assinatura."
       />
-      <DetailsSub date={sub.date} price={sub.price} />
-      <ActionSub id={sub.id} />
-      <TableSub history={sub.history()} price={sub.price} />
-    </ContainerSubscriptionDetailsStyled>
+      <ContainerSubscriptionDetailsStyled>
+        <HeaderSub
+          title={sub.name}
+          date={sub.dateInit}
+          modality={sub.modality}
+          link={sub.link}
+          ifRenewalToday={sub.renewal}
+        />
+        <DetailsSub date={sub.date} price={sub.price} />
+        <ActionSub id={sub.id} />
+        <TableSub history={sub.history()} price={sub.price} />
+      </ContainerSubscriptionDetailsStyled>
+    </>
   );
 };
 

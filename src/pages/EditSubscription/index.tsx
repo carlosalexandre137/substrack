@@ -5,6 +5,8 @@ import { useSubscriptionContext } from "@/hooks/useSubscriptionContext";
 import SubscriptionHelper from "@/helpers/SubscriptionHelper";
 import { getShortDateStringEnglish } from "@/utils/Date";
 import { formatValuesSubscription } from "@/utils/Subscription";
+import NotFound from "@/components/NotFound";
+import BasePage from "@/components/BasePage";
 
 const EditSubscription = () => {
   const params = useParams();
@@ -13,7 +15,9 @@ const EditSubscription = () => {
   const subscription = getSubscriptionWithId(id);
 
   if (subscription === false) {
-    return "Subscription Failed";
+    return (
+      <NotFound message="Não foi possível encontrar a assinatura que você procura" />
+    );
   }
 
   const sub = new SubscriptionHelper(subscription);
@@ -24,18 +28,24 @@ const EditSubscription = () => {
   }
 
   return (
-    <Form
-      title={`Editar assinatura ${sub.name}`}
-      button="Editar"
-      save={saveEditedSubscription}
-      valueName={sub.name}
-      valueLink={sub.link}
-      valuePlan={sub.plan}
-      valuePrice={subscription.price}
-      valueDate={getShortDateStringEnglish(new Date(subscription.date))}
-      valueModality={subscription.modality}
-      message="Assinatura editada com sucesso"
-    />
+    <>
+      <BasePage
+        title="Editar assinatura"
+        description="Faça alterações e atualizações nos detalhes da sua assinatura aqui. Mantenha seus registros precisos e atualizados conforme necessário."
+      />
+      <Form
+        title={`Editar assinatura ${sub.name}`}
+        button="Editar"
+        save={saveEditedSubscription}
+        valueName={sub.name}
+        valueLink={sub.link}
+        valuePlan={sub.plan}
+        valuePrice={subscription.price}
+        valueDate={getShortDateStringEnglish(new Date(subscription.date))}
+        valueModality={subscription.modality}
+        message="Assinatura editada com sucesso"
+      />
+    </>
   );
 };
 
