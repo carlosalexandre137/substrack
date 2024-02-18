@@ -36,14 +36,25 @@ Substrack é um projeto desenvolvido em React.js que funciona como um gerenciado
   - `components/` : Componentes React reutilizáveis.
   - `config/` : Constantes pré-definidas do projeto.
   - `contexts/` : Contextos do projeto para compartilhar dados.
-  - `controller/` : Auxiliar na formatação de valores para a visualização.
+  - `enum/` : Conjuntos de constantes nomeadas.
+  - `helpers/` : Funções utilitárias complexas.
   - `hooks/` : Hooks personalizados para compartilhar lógicas entre os componentes
-  - `model/` : Conexão com o banco de dados (localstorage).
   - `pages/` : Páginas do projeto.
   - `reducers/` : Gerenciar estados do projeto.
+  - `services/` : Conexão com o banco de dados (localstorage).
   - `utils/` : Funcionalidades reutilizáveis.
+  - `shared/` : Compartilhar recursos.
 
 ## Linha do Tempo
+
+### [Versão 3.0.0] - [18/02/2024]
+
+- Vite
+- Typescript
+- Biblioteca styled-component para estilizar css-in-js
+- Biblioteca heroicons para ícones
+- Remoção do tailwind
+- Página com detalhes da assinatura
 
 ### [Versão 2.0.0] - [14/01/2024]
 
@@ -62,8 +73,8 @@ Substrack é um projeto desenvolvido em React.js que funciona como um gerenciado
 
 ### Próximas Atualizações Planejadas
 
-- Vite e Styled Components
-- TypeScript
+- Melhorar design
+- Novas funcionalidades para o usuário como: filtrar, procurar e ordenar assinaturas
 
 ## Acesso ao Projeto
 
