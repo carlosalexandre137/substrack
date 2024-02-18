@@ -5,7 +5,7 @@ import * as path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    outDir: "dist",
+    outDir: "build",
   },
   resolve: {
     alias: {
