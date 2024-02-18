@@ -6,6 +6,7 @@ import DetailsSub from "../../components/DetailsSub";
 import ActionSub from "../../components/ActionsSub";
 import TableSub from "../../components/TableSub";
 import { ContainerSubscriptionDetailsStyled } from "./styled";
+import NotFound from "@/components/NotFound";
 
 const Subscription = () => {
   const params = useParams();
@@ -15,7 +16,9 @@ const Subscription = () => {
   const subscription = getSubscriptionWithId(Number(id));
 
   if (subscription === false) {
-    return "Subscription failed!";
+    return (
+      <NotFound message="Não foi possível encontrar a assinatura que você procura" />
+    );
   }
 
   const sub = new SubscriptionHelper(subscription);

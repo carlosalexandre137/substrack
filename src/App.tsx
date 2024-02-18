@@ -7,6 +7,7 @@ import Subscription from "./pages/Subscription";
 import { SubscriptionProvider } from "./contexts/SubscriptionContext";
 import EditSubscription from "./pages/EditSubscription";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
               path="assinaturas/:id/editar"
               element={<EditSubscription />}
             />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </SubscriptionProvider>
